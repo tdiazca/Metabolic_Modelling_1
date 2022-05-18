@@ -1,0 +1,248 @@
+Structural()
+
+#
+##
+### initially based on BM comp by Heinemann 2005
+##
+#
+
+
+    ## Amino Acids
+
+"L-ALPHA-ALANINE_AA_bm_tx": 
+	"x_ALA" <- "L-ALPHA-ALANINE" 
+	~
+"ARG_AA_bm_tx": 
+	"x_ARG" <- "ARG"
+	~
+"ASN_AA_bm_tx": 
+	"x_ASN" <- "ASN"
+	~
+"L-ASPARTATE_AA_bm_tx": 
+	"x_ASP" <- "L-ASPARTATE"
+	~
+"CYS_AA_bm_tx":
+	"x_CYS" <- "CYS"
+	~
+"GLN_AA_bm_tx": 
+	"x_GLN" <- "GLN"
+	~
+"GLT_AA_bm_tx": 
+	"x_GLT" <- "GLT"
+	~
+"GLY_AA_bm_tx":
+	"x_GLY" <- "GLY"
+	~
+"HIS_AA_bm_tx":
+	"x_HIS" <- "HIS"
+	~
+"ILE_AA_bm_tx": 
+	"x_ILE" <- "ILE"
+	~
+"LEU_AA_bm_tx": 
+	"x_LEU" <- "LEU"
+	~
+"LYS_AA_bm_tx":  
+	"x_LYS" <- "LYS"
+	~
+"MET_AA_bm_tx": 
+	"x_MET" <- "MET"
+	~
+"PHE_AA_bm_tx": 
+	"x_PHE" <- "PHE"
+	~
+"PRO_AA_bm_tx": 
+	"x_PRO" <- "PRO"
+	~
+"SER_AA_bm_tx": 
+	"x_SER" <- "SER"
+	~
+"THR_AA_bm_tx": 
+	"x_THR" <- "THR"
+	~
+"TRP_AA_bm_tx": 
+	"x_TRP" <- "TRP"
+	~
+"TYR_AA_bm_tx":
+	"x_TYR" <- "TYR"
+	~
+"VAL_AA_bm_tx": 
+	"x_VAL" <- "VAL"
+	~
+
+    ## Nucleotides # A,C,G,T,U; nucleosides: AMP, CMP, TMP, GMP, UMP
+    
+
+    ## DNA Nucleotides
+
+DATP_bm_tx:
+    x_DATP <- "DATP"
+    ~
+DCTP_bm_tx:
+    x_DCTP <- "DCTP"
+    ~
+DGTP_bm_tx:
+    x_DGTP <- "DGTP"
+    ~
+DTTP_bm_tx:
+    x_DTTP <- "TTP"
+    ~
+    ## RNA Nucleotides
+
+ATP_bm_tx:
+    x_ATP <- "ATP"
+    ~
+CTP_bm_tx:
+    x_CTP <- "CTP"
+    ~
+GTP_bm_tx:
+    x_GTP <- "GTP"
+    ~  
+UTP_bm_tx:
+    x_UTP <-  "UTP"
+    ~
+
+
+
+    ## MEMBRANE PHOSPHOLIPIDS
+
+DAG_bm_tx:
+    x_DAG <- "DIACYLGLYCEROL"
+    ~
+PG_bm_tx:
+    x_PG <- "L-1-PHOSPHATIDYL-GLYCEROL"
+    ~
+
+CL_bm_tx:
+    x_CL <- "CARDIOLIPIN"
+    ~
+
+LTA_bm_tx: # lipoteichoic acids, connects cell wall to cell membrane
+    x_LTA <- "Type-I-LTA"
+    ~
+
+"GLC2-DAG_bm_tx": # lipoteichoic acids, connects cell wall to cell membrane
+    "x_GLC2-DAG" <- "diacyl-3-O-glucl-1-6-gluc-sn-glycerol"
+    ~
+
+"GLC-DAG_bm_tx": # lipoteichoic acids, connects cell wall to cell membrane
+    "x_GLC-DAG" <- "D-Glucosyl-12-diacyl-glycerols"
+    ~
+
+    ## Menaquinol/nones (lipids) #
+
+Menaquinone_bm_tx:  # both exporters together form an inconsistent subset
+    "x_Menaquinone" <- "MENAQUINONE"  
+    ~
+
+    ## PEPTIDOGLYCAN CELL WALL: NAcGlc and N-acetyl-muramic acid
+
+PepGly_bm_tx: # C239H388N52O94P2 , 5555.9 Daltons MW
+    x_PepGly <- "CPD-12230"
+    ~
+
+    ## PEPTIDOGLYCAN WTA COMPLEX : wall teichoic acids, cell wall
+
+"WTA-PG_bm_tx": # in BM planktonic
+    "x_WTA-PG_tx" <- "Rbo-P-Teichoic-aureus-peptidoglycan"
+    ~
+## Pool solutes
+
+glycogen_bm_tx:
+    x_glycogen <- "glycogen"
+    ~
+
+acCoA_bm_tx:
+    x_acCoA <- "ACETYL-COA"
+    ~
+
+succCoA_bm_tx:
+    x_succCoA <- "SUC-COA"
+    ~
+
+CoA_bm_tx:
+    x_CoA <- "CO-A"
+    ~
+
+FAD_bm_tx: 
+    x_FAD <- "FAD"
+    ~
+
+NAD_bm_tx:  
+    x_NAD <- "NAD"
+    ~
+
+NADH_bm_tx: 
+    x_NADH <- "NADH"
+    ~
+
+NADP_bm_tx: 
+    x_NADP <- "NADP"
+    ~
+
+NADPH_bm_tx: 
+    x_NADPH <- "NADPH"
+    ~
+
+########## BIOFILM COMPONENTS
+
+    ## ECTA or WTA: teichoic acids, cell wall and biofilms
+    
+"ECTA_bf_bm_tx":
+    x_ECTA <- "CPD-19305"
+    ~
+    # possibly the EC TA in BM biofilm
+    # Somerville 2016 = WTA synthesis = D-ala
+    # CPD-19305 comes from "CPD-19311_peri" excreted consuming ATP
+        #  to extracellular space and modified there with D-Ala residues
+         # that confer a positive charge to the negative polymer
+         # so is ALREADY in the extracellular space! No need to export
+             # consuming more ATP again (see below)
+    # REF EC TA in bff very similar structure to WTA (Hussain et al 1992)
+
+##  REAC IN MODEL EXTRAS IN CELL WALL SYNTHESYS
+##    "TRANS-RXN-314": # Unknowns: "CPD-19305 (ECTA) is produced from CPD-19311_peri in periplasm
+##        "CPD-19311" + "ATP" + "WATER" ->
+##        "CPD-19311_peri" + "ADP" + "Pi" + "PROTON"
+##        ~
+##        #PHYSIOL-LEFT-TO-RIGHT
+##        # EC-7.5.2.4 TA ABC transporter, from cytoplasm to extracellular space
+##            # where it will bind PG in synthesis of cell wall etc.
+
+    ## In PGDB 1or 15TB0846 =
+    ##"RXN1G46-5": # SERP0296, SERP0297,SERP1409  export Teichoic acid
+    ##    "Teichoic-Acid" + "ATP" + "WATER" ->
+    ##    x_Teichoic-Acid + "ADP" + "Pi" + "PROTON"
+    ##    ~
+    ##    # 3.6.3.40-RXN - EC-7.5.2.4 MetaCyc
+    ##    # teichoic-acid-transporting ATPase (ABC-type)
+    ##    # An enzyme found in Gram-positive bacteria that
+    ##    # exports teichoic acid. These are wall TA.
+    ##    # MetaCyc reac
+
+
+    ## PIA
+
+"PIA1_bf_bm_tx":
+    "x_PIA1" <- "PIA1"
+    ~
+    # poly-beta-1,6-N-acetyl-D-glucosamine (C8H15O6N1)=NAcGlc
+
+"PIA2_bf_bm_tx":
+    "x_PIA2" <- "PIA2"
+    ~
+    #partially N-deacetylated poly-beta-1,6-N-acetyl-D-glucosamine
+    # (C6H14O5N1)=GlcN
+
+"PIA3_bf_bm_tx":
+    "x_PIA3" <- "PIA3"
+    ~
+    # O-succylated poly-beta-1,6-N-acetyl-D-glucosamine (c12h18o9n1)
+    # 6 percent of sugar res modified with succinate moieties
+    # o-succylation of sugar residues (NAcGlc)
+
+    ## ECTA or WTA: teichoic acids, cell wall and biofilms
+
+
+
+

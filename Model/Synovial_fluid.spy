@@ -1,0 +1,674 @@
+Structural()
+
+## Synovial fluid
+
+############### Amino acids
+
+"CITRULLINE_mm_tx": ## AA
+    x_CITRULLINE -> "L-CITRULLINE"
+    ~
+    # No specific info on txs MetaCyc (generic)
+
+"ORNIT_mm_tx": ## AA
+    x_ORNIT -> "L-ORNITHINE"
+    ~
+    # No specific info on txs MetaCyc (generic)
+
+"TAU_mm_tx": ## AA # NOT in m.sm.rnames of RP62A or 846
+    "x_TAURINE" + "ATP" + "WATER" -> "TAURINE" + "ADP" + "Pi" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # ABC-64-RXN Txs in MetaCyc for E.coli
+
+"4-AMINO-BUTYRATE_mm_tx": ## (GABA) AA ; # NOT in m.sm.rnames of 846 but in RP62A model yes
+    "x_PROTON" + "x_4-AMINO-BUTYRATE" -> "PROTON" + "4-AMINO-BUTYRATE"
+    ~
+    # SERP0902 in Sepi 846 and RP62A
+    # E.coli 4-AMINO-BUTYRATE H+ symporter, gene gabP
+
+"L-ALPHA-ALANINE_NA_AA_mm_tx": # "TRANS-RXN-125"; SERP0927
+    "x_NA+" + "x_ALA" -> "NA+" + "L-ALPHA-ALANINE"
+    ~
+    #REVERSIBLE
+    # Na ALA symporter
+    
+"L-ALPHA-ALANINE_AA_mm_tx": # TRANS-RXN1G46-5; SERP1260, SERP1902, SERP2017 import
+    "x_ALA" -> "L-ALPHA-ALANINE" 
+    ~
+    # ala / gly permease
+
+"ARG_AA_mm_tx": # RXN1G46-11 ; SERP2003
+    "x_ARG" + "ATP" + "WATER" -> "ARG" + "ADP" + "Pi" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # arginine ABC transporter ATP-binding protein SERP2003
+    # amino acid ABC transporter permease SERP2028
+    # amino acid ABC transporter permease SERP2355
+    # predicted ABC transporter of an amino acid SERP2004, SERP2005
+
+"ARG_ORN_antip_AA_mm_tx": # TRANS-RXN1G46-20; SERP2247
+    "x_ARG" + "L-ORNITHINE" <> "ARG" + "x_ORNIT"
+    ~
+    #LEFT-TO-RIGHT
+    # arginine-ornithine antiporter 
+    # "25-DIAMINOPENTANOATE" = L-ORNITHINE
+
+"ASN_AA_mm_tx":
+    "x_ASN" -> "ASN"
+    ~
+
+"L-ASPARTATE_AA_mm_tx":
+    "x_L-ASPARTATE" -> "L-ASPARTATE"
+    ~
+
+"CYS_AA_mm_tx": # RXN1G46-17 ; SERP0340
+    "x_CYS" + "ATP" + "WATER" -> "CYS" + "ADP" + "Pi" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # cysteine ABC transporter ATP-binding protein SERP0340
+    # amino acid ABC transporter permease SERP2028
+    # amino acid ABC transporter permease SERP2355
+    # predicted ABC transporter of an amino acid SERP2004, SERP2005
+
+"GLT_AA_mm_tx": #  RXN1G46-23; SERP1395, SERP1394
+    "x_GLT" + "ATP" + "WATER" -> "GLT" + "ADP" + "Pi" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # predicted ABC transporter of a glutamate (SERP1395)
+    # amino acid ABC transporter permease (SERP2028,SERP2355,SERP2005)
+
+"GLT_NA_AA_mm_tx": # TRANS-RXN1G46-11;  SERP1935
+    "x_GLT" + "x_NA+" -> "GLT" + "NA+"
+    ~
+    #LEFT-TO-RIGHT
+    # Sodium / glutamate symporter
+
+"GLN_AA_mm_tx": 
+    "x_GLN" + "ATP" + "WATER" -> "GLN" + "ADP" + "Pi" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # SERP2003; SERP2004, SERP1394 are generic but shown in PGDB RP62A for GLN tx
+    # predicted ABC transporter
+    # amino acid ABC transporter permease
+
+"GLN_H_AA_mm_tx":
+    "x_PROTON" + "x_GLN" -> "PROTON" + "GLN"
+    ~
+    # REVERSIBLE
+    # plenty of genes but for a generic AA txs
+    # generic reac shows in PGDB RP62A for GLN tx
+
+"GLY_AA_mm_tx": # TRANS-RXN0-537; SERP2142
+    "x_GLY" -> "GLY"
+    ~
+    # REVERSIBLE ECOCYC
+    # D-serine/D-alanine/glycine transporter (SERP2142)
+    # Amino acid transporter LysE SERP0051
+    # Amino acid transporter SERP2034
+    # TRANS-RXN1G46-5; SERP1260, SERP1902, SERP2017 import
+    # ala / gly permease
+
+"HIS_AA_mm_tx":
+    "x_HIS" -> "HIS"
+    ~
+    # No specific info for ref genome Sau 8325 Bsub 168 vs 24.0
+
+"ILE_AA_mm_tx":
+    "x_ILE" -> "ILE"
+    ~
+
+"LEU_AA_mm_tx":
+    "x_LEU" -> "LEU"
+    ~
+
+"LYS_AA_mm_tx": # TRANS-RXN-58; SERP1245  
+    "x_PROTON" + "x_LYS" -> "PROTON" + "LYS"
+    ~
+    #REVERSIBLE
+    # Lys proton symporter ECOCYC
+    # lysine-specific permease SERP1245 
+    # amino acid permease 2158, 2018, 0232
+
+"MET_AA_mm_tx": # RXN1G46-22; SERP0098/9, SERP0489, SERP0491
+    "x_MET" + "ATP" + "WATER" -> "MET" + "ADP" + "Pi" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # predicted ATP-driven transporter of L-methionine SERP0489, SERP0491
+    # predicted ABC transporter of L-methionine SERP0098, 0099
+    # amino acid ABC tx 2028, 2004, 2005, 2355
+
+"PHE_AA_mm_tx":
+    "x_PHE" -> "PHE"
+    ~
+
+"PRO_AA_mm_tx": # TRANS-RXN-118; SERP1440
+    "x_NA+" + "x_PRO" -> "NA+" + "PRO"
+    ~
+    #REVERSIBLE
+    # Sodium proline symporter
+
+"SER_AA_mm_tx":
+    "x_SER" -> "SER"
+    ~
+
+"TRP_AA_mm_tx":
+    "x_TRP" -> "TRP"
+    ~
+
+"TYR_AA_mm_tx":
+    "x_TYR" -> "TYR"
+    ~
+
+"THR_AA_mm_tx":
+    "x_THR" -> "THR"
+    ~
+
+"VAL_AA_mm_tx":
+    "x_VAL" -> "VAL"
+    ~
+
+############################ GLYCOSAMINOGLYCANS
+
+    ## Mostly HA, only 2 per cent is chondroitin sulphate
+
+####### HYALURONIC ACID: (D-glucuronic acid and D-N-acetylglucosamine)
+
+Hyaluronate_mm_tx: ## HA;
+    "x_Hyaluronate" + "ATP" + "WATER" -> "HYALURONATE" + "ADP" + "Pi" + "PROTON"
+    ~
+    # ABC-type oligosaccharide transporter in MetaCyc (generic)
+    # Compound not in Sepi 846 model
+    # Vir factor Staph aureus: EC-4.2.2.1 ; gene hyaluronate lyase: hysA
+    # Enz described in Sepi RP62A, not found on lab strain
+
+Glucuronate_mm_tx: ## HA;
+    "x_PROTON" + "x_Glucuronate" -> "PROTON" + "CPD-12521"
+    ~
+    # Txs reac in MetaCyc Ecoli gene exuT
+    # Not in Sepi 846 model, orphan in RP62A
+    # No specific reference to glucuronate being effectively used by Staph.
+    # No increased growth on Staph if supplemented (Oya 1960)
+    # 'CPD-14488' - alpha-D-glucuronate ; 'CPD-12521' - beta-D-glucuronate
+    # 'CPD-15530' - aldehydo-D-glucuronate
+
+GlcNac_mm_tx: ## HA
+    "x_GlcNac" + "ATP" + "WATER" -> "N-ACETYL-D-GLUCOSAMINE" + "ADP" + "Pi" + "PROTON"
+    ~
+    # Generic reac MetaCyc for monosaccharide
+    # "N-ACETYL-D-GLUCOSAMINE" orphan in Sepi 846
+
+"GlcNac_PTS_mm_tx": # "TRANS-RXN-167"
+    "Hpr-pi-phospho-L-histidines" +  "x_GlcNac" -> "Hpr-Histidine" +  "N-ACETYL-D-GLUCOSAMINE-6-P"
+    ~
+    # S.aureus gene ptaA (several strains Uniprot); also in KEGG
+    # Staphylococcus epidermidis VCU123 gene nagE in BioCyc
+    # Unsure on whether present in S.epi RP62A, only generic reacs for PTS sugar transport systems
+
+####### CHONDROITIN SULPHATE (N-acetyl-beta-D-galactosamine and beta-D-glucuronate)
+            # both comps can be sulfated (see chondroitin sulphate A,C,D and E)
+
+"GalNac_mm_tx": ## N-acetyl-beta-D-galactosamine
+    "x_GalNac" + "ATP" + "WATER" -> "CPD-12557" + "ADP" + "Pi" + "PROTON"
+    ~
+    # Generic reac MetaCyc for monosaccharide
+    # Not in Sepi 846 and orphan in RP62A
+    # N-acetyl-D-galactosamine - only rxs in MetaCyc (22.6) that CONSUME it =
+        # dbs['N-acetyl-D-galactosamine'].Instances = CPD-12557 (beta), CPD-3604 (alpha)
+        # consuming it: RXN-13547; (produces 'N-ACETYL-D-GALACTOSAMINE-6-PHOSPHATE') ; not in model or db
+        # consuming it: 2.7.1.157-RXN (produces CPD-7246 (...-1-P) ; not in model or db         
+
+##Glucuronate_mm_tx: ## HA;  ## AS ABOVE
+##    "x_PROTON" + "x_Glucuronate" -> "PROTON" + "CPD-12521"
+##    ~
+
+#######
+
+"UREA_mm_tx":
+    "x_UREA" -> "UREA"
+    ~
+    # gene Sepi 846 SERP1868
+    # gene RP62A SERP1868 (yut)
+
+"Urate_mm_tx": ## Uric acid
+    "x_PROTON" + "x_Urate"  -> "PROTON" + "URATE"
+    ~
+    # Tx in Ecoli gene uacT
+    # "URATE" - orphan in RP62A and 846 model
+    # "CPD-15332" - uric acid; Not in RP62A opr 846 model!
+
+#############    GLUCOSE
+
+"GLC_mm_tx": # TRANS-RXN1G46-6; SERP1838
+    "x_GLC" -> "GLC"
+    ~
+    #LEFT-TO-RIGHT
+    # Glucose uptake protein GlcU
+
+"GLC_PTS_mm_tx": # RXN-15083; EC-2.7.1.199; SERP2114, SERP1290 PTS glc import system
+    "Hpr-pi-phospho-L-histidines" + "x_GLC" -> "GLC-6-P" + "Hpr-Histidine"
+    ~
+    #LEFT-TO-RIGHT
+    # PTS glucose transporter
+
+#############      CORE SUBSTRATES, GAS, METALS    
+
+"AMMONIUM_mm_tx":  
+    "x_NH4" -> "AMMONIUM"
+    ~
+
+"WATER_tx":
+    "x_WATER" <> "WATER"
+    ~
+
+"OXYGEN-MOLECULE_tx":
+    "x_O2" <> "OXYGEN-MOLECULE"
+    ~
+
+"Pi_tx": #"ABC-27-RXN"; SERP0957, SERP0958, SERP0959 
+    "ATP" +  "x_Pi" + "WATER" -> "ADP" + 2  "Pi" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+    # ABC transporter of phosphate
+
+
+"SULFATE_tx": # TRANS-RXN1G46-10; SEA0024 (SERP_RS00130) pSERP plasmid
+    "x_SULFATE" + "x_PROTON" -> "SULFATE" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # sulphate permease SEA0024
+    # anion permease SERP0317, 2187, 2432, 0509, 2513
+
+"NA+_H+_tx": # TRANS-RXN1G46-12; SERP0092, SERP1976, 
+    "x_NA+" + "PROTON" <> "NA+" + "x_PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # sodium-dependent transporter
+    # proton/sodium antiporter chaA in Ecoli
+
+##"NA+_H+_tx": # TRANS-RXN1G46-12; SERP0092, SERP1976, 
+##    "x_NA+" + "x_PROTON" <> "NA+" + "PROTON"
+##    ~
+##    #LEFT-TO-RIGHT
+##    # sodium-dependent transporter
+##    # proton/sodium-glutamate symport protein GltT
+    
+##"FE+2_mm_tx": 
+##    "x_FE+2" -> "FE+2"
+##    ~
+## Needed for protoheme/siroheme synthesis.
+## But these are not in BM description file.
+
+########        VITAMINS
+
+NIACINE_mm_tx: # needed to produce NAD,NADH,NADP,NADPH without O2 and NO3!!!
+    x_NIACINE -> "NIACINE" 
+    ~
+## Auxotrophy exp N315 Becker 2005, comp in all 64 strains Bosi 2016
+
+#######         ALTERNATIVE ELECTRON ACCEPTORS
+
+NO3_mm_tx: # TRANS-RXN1G46-13; SERP2357, SERP2030, SERP1980 (NarT)
+    x_NITRATE <> "NITRATE"
+    ~
+    #LEFT-TO-RIGHT
+    # Nitrate tx NarT
+    # # 4 to 6 microgram/ml in blood:
+        #REF an evaluation of blood nitrate levels 1958
+
+"NO2_tx": # ETC # Can be imported, but stronger pref of EC for NO3 in ETC (REF)
+    x_NITRITE <- "NITRITE"
+    ~
+    # short half life in plasma; gets oxidized to NO3
+
+#######      METABOLIC BY-PRODUCTS; EXCRETED TO THE ENVIRONMENT
+
+"ACET_bp_tx": # fermentation: pyruvate to acetate
+    "x_ACET" + "x_PROTON" <- "ACET" + "PROTON"
+    ~
+    # CH3COOH vs CH3COO- (acetic acid is protonated form of acetate)
+    # In MetaCyc CH3COO- formula (acetate)
+    # we assume when its exported it is exported as the acid
+    # part of the acid will be present as conjugated base (acetate)
+    # ratio depends on dissociation constant under physiological conditions
+
+"ACETOIN_bp_tx": # fermentation: pyruvate to acetoin
+    "x_ACETOIN" <- "ACETOIN"
+    ~
+    
+"BUTYRIC_ACID_bp_tx": # fermentation: pyruvate to butanoate
+    "x_BUTYRIC_ACID" + 1 "x_PROTON" <- "BUTYRIC_ACID" + "PROTON"
+    ~
+
+"BUTANOL_bp_tx": # fermentation: glycerol to butanol (PWY-7003)
+    x_BUTANOL  <- "BUTANOL"
+    ~
+
+"BUTANEDIOL_bp_tx": # fermentation: glycerol to butanediol
+    "x_BUTANEDIOL"  <- "BUTANEDIOL"
+    ~
+
+"CARBON-DIOXIDE_bp_tx": # Not IRREV, bact can not fix it
+    "x_CO2" <- "CARBON-DIOXIDE"
+    ~
+
+"ETOH_bp_tx": # mixed acid fermentation and pyruvate to ethanol
+    "x_ETOH" <- "ETOH"
+    ~
+
+"FORMATE_bp_tx": # mixed acid fermentation = CO2 + H2 * Check!!
+    "x_FORMATE" + "x_PROTON" <- "FORMATE" + "PROTON"
+    ~
+
+"D-LACTATE_bp_tx":
+    "x_D-LACTATE" + "x_PROTON" <- "D-LACTATE" + "PROTON"
+    ~
+
+"L-LACTATE_bp_tx":
+    "x_L-LACTATE" + "x_PROTON" <- "L-LACTATE" + "PROTON"
+    ~
+
+"SUC_bp_tx": # mixed acid fermentation
+    "x_SUC" + 2 "x_PROTON" <- "SUC" + 2 "PROTON"
+    ~
+
+"2-KETOGLUTARATE_bp_tx": # mixed acid fermentation
+    "x_2-KETOGLUTARATE" + 2 "x_PROTON" <- "2-KETOGLUTARATE" + 2 "PROTON"
+    ~
+
+"AMMONIUM_tx":  
+    "x_NH4" <- "AMMONIUM"
+    ~
+
+"Autoinducer_2_sink_tx": # Produced during CYS and MENAQUINONE biosynthesis and not consumed
+    "x_Autoinducer_2A" <- "CPD-10774"
+    ~
+
+"HS_tx":
+    x_HS <- "HS"
+    ~
+
+######### NOTES ON SYNOVIAL FLUID COMPOSITION
+
+## Individual free amino acids in human blood plasma26,27: aspartic acid, asparagine, glutamic acid, glutamine,
+## glycine, alanine, aminobutyric acid, valine, leucine, isoleucine, serine, threonine, cysteine, methionine,
+## taurine, proline, phenylalanine, tyrosine, tryptophan, histidine, ornithine, lysine, arginine, citrulline.
+
+## In SUMMARY: make in vitro synovial fluid with main metabolizable compounds in synovial fluid in vivo: glucose,
+## amino acids, HA (D-glucuronic acid, and D-N-acetylglucosamine), urea, uric acid, chondroitin sulphate.
+
+## "4-AMINO-BUTYRATE_AA_mm_tx": #aminobutyric acid: 4-amino-butanoate involved with ARG, GLU, ORNITHINE degradation;
+##    links to butanoate metabolism
+
+## NH4_mm_tx:  ## REF1: normal range 11 to 32 micromol/l in blood (NH3) = 0.011 to 0.032 mmol per l
+                        # the significance of a high plasma ammonia value, Arch Dis Child 2004
+               ## REF2: lower than 50 micromol/l infants to 16 yr
+                        # (pathology harmony group, clinical biochemistry outcomes, Jan 2011)
+               ## since AA are presnet, it will likely be excreted.
+
+## IMPORTANT:
+
+    ## In plasma, in vitro, NO2 has a short half-life because it is oxidized to NO3.
+    ## It is not yet clear what enzymatic or chemical process is involved in this oxidation reaction.
+        ## REF:Inorganic nitrate and nitrite and control of blood pressure. https://doi.org/10.1093/cvr/cvq309
+    ## NO3/NO2 in blood: 0.0764 mmol/L in men ; 0.0656 mmol/L woman. REF: Ghasemi 2010.
+    ## O2 in blood: 24 mmol. REFS(x3): Shaphiro; Malatesha; Chu YC.
+    ## Free AA concentrations in plasma (REF: Canepa et al.2002): in children,
+        ## ranges from 411 micromol/L GLN to 1.8 micromol/L ASP
+            
+    ## units of flux mmol/gDW/h not directly comparable to mmol/L in blood.
+        ## we don't know vol of synovial fluid im joint and ammount bff in joint.
+
+## Orphan metabolistes (commented):
+    # "TAURINE","CPD-15332","CPD-12557","CPD-12521"
+        # "CPD-15332" - uric acid / urate - 'URATE' in model. In orphans.
+        # "CPD-12557" - &beta;-GalNAc ; 'CPD-3604' - &alpha;-GalNAc - 'N-acetyl-D-galactosamine'
+        # 'CPD-12521' - beta-D-glucuronate; 'CPD-14488' - alpha-D-glucuronate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

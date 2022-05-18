@@ -1,0 +1,176 @@
+Structural()
+
+"ATPSYN-RXN": # (ATPSynth) EC-7.1.2.2; genes: SERP1708 to SERP1715
+    "ADP" + "Pi" + 4 "x_PROTON" -> "ATP" + "WATER" + 3 "PROTON"
+    ~
+
+"NADH-DEHYDROG-A-RXN": # EC-7.1.1.2:(NADH-DEHYDROG-A-RXN); genes: SERP0524/0527/0084/0535
+    "NADH" + "MENAQUINONE" + 5 "PROTON" -> "REDUCED-MENAQUINONE" + 4 "x_PROTON" + "NAD"
+    ~ 
+	
+"RXN-14107": # EC-7.1.1.8: (RXN-14107)
+    2 "Cytochromes-C-Oxidized" + "REDUCED-MENAQUINONE" -> 2 "Cytochromes-C-Reduced" + "MENAQUINONE" + 2 "x_PROTON"
+    ~
+
+"CYTOCHROME-C-OXIDASE-RXN": # EC-1.9.3.1: (CYTOCHROME-C-OXIDASE-RXN); gene: SERP0645
+    "OXYGEN-MOLECULE" + 4 "Cytochromes-C-Reduced" + 8 "PROTON" -> 4 "Cytochromes-C-Oxidized" + 2 "WATER" + 4 "x_PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+#### ANAEROBIC RESPIRATION
+"RXN0-3501": # EC-1.7.5.1: (RXN0-3501); gene: SERP1985
+    "NITRATE" + 2 "PROTON" + "REDUCED-MENAQUINONE" -> "NITRITE" + "WATER" + "MENAQUINONE" + 2 "x_PROTON"
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

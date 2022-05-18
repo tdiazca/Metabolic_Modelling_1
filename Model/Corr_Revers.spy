@@ -1,0 +1,676 @@
+Structural()
+
+# Reacs with corrected directionality
+
+"PYRUVDEH-RXN": # COE 
+    1 "CO-A" + 1 "PYRUVATE" + 1 "NAD" -> 1 "NADH" + 1 "CARBON-DIOXIDE" + 1 "ACETYL-COA"
+    ~
+
+"GLUTATHIONE-PEROXIDASE-RXN": # COE
+    2 "GLUTATHIONE" + 1 "HYDROGEN-PEROXIDE" -> 2 "WATER" + 1 "OXIDIZED-GLUTATHIONE"
+    ~
+
+"GKI-RXN":  # COE
+    1 "GLYCERATE" + 1 "ATP" -> 1 "2-PG" + 1 "PROTON" + 1 "ADP"
+    ~
+
+"RXN66-1": # COE
+    1 "HYDROGEN-PEROXIDE" + 1 "ETOH" -> 2 "WATER" + 1 "ACETALD"
+    ~
+
+"RXN-2802": # COE
+    2 "WATER" + 1 "ACETYL-COA" -> 1 "CO-A" + 5 "PROTON" + 1 "GLYOX"
+    ~
+
+"RXN0-6373": # COE (originally Ubiquinones)
+    1 "MENAQUINONE" + 1 "GLC" -> 1 "REDUCED-MENAQUINONE" + 1 "GLC-D-LACTONE"
+    ~
+
+"RXN66-3": # COE
+    1 "WATER" + 1 "NAD" + 1 "ACETALD" -> 1 "NADH" + 2 "PROTON" + 1 "ACET"
+    ~
+
+"RXN-13329": # COE
+    1 "WATER" + 1 "CPD-12279" + 1 "PROTON" -> 1 "GLYOX" + 1 "AMMONIUM"
+    ~
+
+"2.7.1.121-RXN": # COE
+    1 "DIHYDROXYACETONE" + 1 "PHOSPHO-ENOL-PYRUVATE" -> 1 "PYRUVATE" + 1 "DIHYDROXY-ACETONE-PHOSPHATE"
+    ~
+
+"RXN-12195": # COE
+    1 "WATER" + 1 "CTP" -> 1 "Pi" + 1 "CDP" + 1 "PROTON"
+    ~
+
+"RXN-14187": # COE
+    1 "WATER" + 1 "DCDP" -> 1 "Pi" + 1 "DCMP" + 1 "PROTON"
+    ~
+
+"SUCCSEMIALDDEHYDROG-RXN": # COE
+    1 "WATER" + 1 "NADP" + 1 "SUCC-S-ALD" -> 1 "NADPH" + 1 "SUC" + 2 "PROTON"
+    ~
+    
+"DCMP-DEAMINASE-RXN": # COE
+    1 "WATER" + 1 "DCMP" + 1 "PROTON" -> 1 "DUMP" + 1 "AMMONIUM"
+    ~
+
+"DCTP-DEAM-RXN": # COE
+    1 "WATER" + 1 "PROTON" + 1 "DCTP" -> 1 "DUTP" + 1 "AMMONIUM"
+    ~
+
+"DUTP-PYROP-RXN":  # COE
+    1 "WATER" + 1 "DUTP" -> 1 "PPI" + 1 "DUMP" + 1 "PROTON"
+    ~
+
+"CYTIKIN-RXN": # COE
+    1 "ATP" + 1 "CYTIDINE" -> 1 "PROTON" + 1 "ADP" + 1 "CMP"
+    ~
+
+"RXN-14026": # COE
+    1 "WATER" + 1 "CMP" -> 1 "Pi" + 1 "CYTIDINE"
+    ~
+
+"RXN-12196": # COE
+    1 "WATER" + 1 "UTP" -> 1 "UDP" + 1 "Pi" + 1 "PROTON"
+    ~
+
+"RXN-14025": # COE
+    1 "WATER" + 1 "UMP" -> 1 "Pi" + 1 "URIDINE"
+    ~
+
+"GLUCOSE-1-PHOSPHAT-RXN": # COE
+    1 "WATER" + 1 "GLC-1-P" -> 1 "GLC" + 1 "Pi"
+    ~
+
+"GARTRANSFORMYL2-RXN":# COE
+    1 "FORMATE" + 1 "5-PHOSPHO-RIBOSYL-GLYCINEAMIDE" + 1 "ATP" -> 1 "Pi" + 1 "PROTON" + 1 "ADP" + 1 "5-P-RIBOSYL-N-FORMYLGLYCINEAMIDE"
+    ~
+    
+"ADENYL-KIN-RXN": # COE
+    1 "AMP" + 1 "ATP" -> 2 "ADP"
+    ~
+
+"RXN-14192": # COE
+    1 "PYRUVATE" + 1 "DATP" <> 1 "PHOSPHO-ENOL-PYRUVATE" + 1 "DADP" + 1 "PROTON"
+    ~
+
+"DADPKIN-RXN": # COE,
+    1 "DADP" + 1 "ATP" -> 1 "DATP" + 1 "ADP"
+    ~
+
+"PEPSYNTH-RXN": # COE
+    1 "WATER" + 1 "PYRUVATE" + 1 "ATP" -> 1 "AMP" + 1 "PHOSPHO-ENOL-PYRUVATE" + 1 "Pi" + 2 "PROTON"
+    ~
+
+"PPPGPPHYDRO-RXN": # COE 
+    1 "WATER" + 1 "GDP-TP" -> 1 "Pi" + 1 "GUANOSINE-5DP-3DP" + 1 "PROTON"
+    ~
+
+"HYDROXYMETHYLGLUTARYL-COA-LYASE-RXN": # COE
+    1 "3-HYDROXY-3-METHYL-GLUTARYL-COA" -> 1 "3-KETOBUTYRATE" + 1 "ACETYL-COA"
+    ~
+
+"HYDROXYMETHYLGLUTARYL-COA-SYNTHASE-RXN":# COE 
+    1 "WATER" + 1 "ACETOACETYL-COA" + 1 "ACETYL-COA" -> 1 "CO-A" + 1 "3-HYDROXY-3-METHYL-GLUTARYL-COA" + 1 "PROTON"
+    ~
+
+"GLUTAMATE-N-ACETYLTRANSFERASE-RXN": # COE
+    1 "GLT" + 1 "N-ALPHA-ACETYLORNITHINE" -> 1 "L-ORNITHINE" + 1 "ACETYL-GLU"
+    ~
+
+"N-ACETYLTRANSFER-RXN": # COE
+    1 "GLT"+ 1 "ACETYL-COA" -> 1 "CO-A" + 1 "PROTON" + 1 "ACETYL-GLU"
+    ~
+
+"ACETYLORNDEACET-RXN": # COE
+    1 "WATER" + 1 "N-ALPHA-ACETYLORNITHINE" -> 1 "L-ORNITHINE" + 1 "ACET"
+    ~
+
+"SUCCINATE-SEMIALDEHYDE-DEHYDROGENASE-RXN": # COE
+    1 "WATER" + 1 "NAD" + 1 "SUCC-S-ALD" -> 1 "NADH" + 1 "SUC" + 2 "PROTON"
+    ~
+
+"GLUTDECARBOX-RXN":# COE,
+    1 "GLT" + 1 "PROTON" -> 1 "4-AMINO-BUTYRATE" + 1 "CARBON-DIOXIDE"
+    ~
+
+"THRESYN-RXN": # COE
+    1 "WATER" + 1 "O-PHOSPHO-L-HOMOSERINE" -> 1 "Pi" + 1 "THR"
+    ~
+
+"HOMOSERKIN-RXN": # COE
+    1 "HOMO-SER" + 1 "ATP" -> 1 "O-PHOSPHO-L-HOMOSERINE" + 1 "PROTON" + 1 "ADP"
+    ~
+
+"RXN-15122":# COE
+    1 "THR" -> 1 "WATER" + 1 "PROTON" + 1 "CPD-15056"
+    ~
+
+"SERINE-O-ACETTRAN-RXN":# COE
+    1 "SER" + 1 "ACETYL-COA" -> 1 "CO-A" + 1 "ACETYLSERINE"
+    ~
+
+"PHOSPHOKETOLASE-RXN": # COE
+    1 "XYLULOSE-5-PHOSPHATE" + 1 "Pi" -> 1 "WATER" + 1 "ACETYL-P" + 1 "GAP"
+    ~
+
+"RXN0-6491": # COE (originally Ubiquinones)
+    1 "MENAQUINONE" + 1 "DI-H-OROTATE" -> 1 "REDUCED-MENAQUINONE" + 1 "OROTATE"
+    ~
+
+"RXN-8889": # COE
+    1 "4-HYDROXY-BUTYRATE" + 1 "ACETYL-COA" -> 1 "4-HYDROXY-BUTYRYL-COA" + 1 "ACET"
+    ~
+
+"RXN-2881": # COE
+    1 "THF" + 1 "FORMALDEHYDE" -> 1 "WATER" + 1 "METHYLENE-THF"
+    ~
+
+"RXN0-6369": # COE (originally Ubiquinones)
+    1 "NITRATE" + 1 "REDUCED-MENAQUINONE" -> 1 "WATER" + 1 "MENAQUINONE" + 1 "NITRITE"
+    ~
+
+"RXNI-3": # COE
+    1 "MAL" + 1 "MENAQUINONE" -> 1 "REDUCED-MENAQUINONE" + 1 "OXALACETIC_ACID"
+    ~
+
+"GLYCEROL-KIN-RXN":# COE
+    1 "GLYCEROL" + 1 "ATP" -> 1 "GLYCEROL-3P" + 1 "PROTON" + 1 "ADP"
+    ~
+
+"RXN-15046": # COE
+    1 "NADPH" + 1 "CPD-15924" + 1 "PROTON" -> 1 "NADP" + 1 "L-1-LYSOPHOSPHATIDATE"
+    ~
+
+"AKPTHIOL-RXN": # COE
+    1 "CO-A" + 1 "CPD-299" -> 1 "ACETYL-COA" + 1 "D-ALANINE"
+    ~
+
+"FORMYLTHFDEFORMYL-RXN": # COE
+    1 "WATER" + 1 "10-FORMYL-THF" -> 1 "THF" + 1 "PROTON" + 1 "FORMATE"
+    ~
+
+"24-DIAMINOPENTANOATE-DEHYDROGENASE-RXN": # COE and L-ornithine degradation II (Stickland reaction) to produce D-analine;  Correct Rev (MetaCyc L-R)
+    "24DINH2-PENTANOATE" + "WATER" + "NAD(P)" -> "CPD-299" + "AMMONIUM" + "NAD(P)H" + "PROTON"
+    ~
+
+"GMP-REDUCT-RXN":  # COE , IRREV in MetaCyc
+    "AMMONIUM" + "IMP" + "NADP" <- 2 "PROTON" + "GMP" + "NADPH"
+    ~
+
+"GDPKIN-RXN": # COE , IRREV in MetaCyc
+    "GDP" + "ATP" -> "GTP" + "ADP"
+    ~
+    #LEFT-TO-RIGHT
+
+"GMP-SYN-NH3-RXN": # COE , IRREV in MetaCyc
+    "XANTHOSINE-5-PHOSPHATE" + "AMMONIUM" + "ATP" -> "GMP" + "AMP" + "PPI" + 2 "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+"INORGPYROPHOSPHAT-RXN": # COE , IRREV in MetaCyc
+    "WATER" + "PPI" -> "PROTON" + 2 "Pi"
+    ~
+    #LEFT-TO-RIGHT
+
+"MALYL-COA-LYASE-RXN": #REV BRENDA BMP production (Stp6);formaldehyde assimilation I (serine pathway); 
+    1 "CPD-208" <> 1 "ACETYL-COA" + 1 "GLYOX"
+    ~
+	
+"ACETYLGLUTKIN-RXN": # Arginine biosynthesis from glutamate via ornithine; Correct Rev L-R (MetaCyc pathway)
+    1 "ATP" + 1 "ACETYL-GLU" -> 1 "N-ACETYL-GLUTAMYL-P" + 1 "ADP"
+    ~
+
+"MALIC-NADP-RXN":# Gluconeogenesis ; Correct Rev L-R (MetaCyc pathway)
+    1 "NADP" + 1 "MAL" -> 1 "NADPH" + 1 "PYRUVATE" + 1 "CARBON-DIOXIDE"
+    ~
+	
+"2OXOGLUTARATEDEH-RXN": # TCA cycle; Corr Rev L-R
+    1 "CO-A" + 1 "2-KETOGLUTARATE" + 1 "NAD" -> 1 "NADH" + 1 "SUC-COA" + 1 "CARBON-DIOXIDE"
+    ~
+
+"PEPCARBOXYKIN-RXN": # Gluconeogenesys; Correct Rev L-R (MetaCyc pathway)
+    1 "OXALACETIC_ACID" + 1 "ATP" -> 1 "PHOSPHO-ENOL-PYRUVATE" + 1 "CARBON-DIOXIDE" + 1 "ADP"
+    ~
+
+"GLUCOKIN-RXN": # COE ,Glycolysis, Change Rev L-R
+    1 "GLC" + 1 "ATP" -> 1 "PROTON" + 1 "GLC-6-P" + 1 "ADP"
+    ~
+
+"ARGSUCCINSYN-RXN": #COE , Correct Rev L-R (MetaCyc pathway)
+    1 "L-ASPARTATE" + 1 "L-CITRULLINE" + 1 "ATP" -> 1 "L-ARGININO-SUCCINATE" + 1 "AMP" + 1 "PPI" + 1 "PROTON"
+    ~
+	
+"OROTATE-REDUCTASE-NADH-RXN": # BMP, MetCyc IRRV L-R, BRENDA REV (clostr, entero, lacto)
+    1 "DI-H-OROTATE" + 1 "NAD" <> 1 "OROTATE" + 1 "NADH" + 1 "PROTON"
+    ~
+	
+"XANTHOSINEPHOSPHORY-RXN": # BMP, (Stp6) REV Bos taurus, humans BRENDA;
+    1 "XANTHOSINE" + 1 "Pi" <> 1 "RIBOSE-1P" + 1 "XANTHINE"
+    ~
+
+"1.5.1.20-RXN": # BMP CYS ; IRREV R-L MetaCyc, but REV BRENDA several orgs
+    "5-METHYL-THF-GLU-N" + "NAD" <> "METHYLENE-THF-GLU-N" + "PROTON" + "NADH"
+    ~
+      
+"ARGINASE-RXN": # COE
+    1 "WATER" + 1 "ARG" -> 1 "UREA" + 1 "L-ORNITHINE"
+    ~
+
+"L-LACTATE-DEHYDROGENASE-RXN": # Rev in BRENDA for S. epi (and in MetaCyc)
+    1 "L-LACTATE" + 1 "NAD" <> 1 "PYRUVATE" + 1 "NADH" + 1 "PROTON"
+    ~
+
+"GLYC3PDEHYDROGBIOSYN-RXN-(NADP)": # Fermentation
+    1 "NADP" + 1 "GLYCEROL-3P" <> 1 "NADPH" + 1 "DIHYDROXY-ACETONE-PHOSPHATE" + 1 "PROTON"
+    ~
+
+"DLACTDEHYDROGFAD-RXN": # COE , L-R MetaCyc
+    1 "D-LACTATE" + 1 "MENAQUINONE" -> 1 "REDUCED-MENAQUINONE" + 1 "PYRUVATE"
+    ~
+    
+"MALATE-DEHYDROGENASE-ACCEPTOR-RXN": # COE , L-R MetaCyc
+    1 "MAL" + 1 "MENAQUINONE" -> 1 "REDUCED-MENAQUINONE" + 1 "OXALACETIC_ACID"
+    ~
+
+"RXN0-6377": # COE
+    "AMMONIUM" + 3 "NAD(P)" + 2 "WATER" <- "NITRITE" + 3 "NAD(P)H" + 5 "PROTON"
+    ~
+
+"R10-RXN": # sorting inconsistent subset (rev as MetaCyc) , REV RuMP pathw to enter PPP
+    1 "CPD-26" <> 1 "RIBULOSE-5P" + 1 "FORMALDEHYDE"
+    ~
+
+"RXN-9510": # sorting inconsistent subset (rev as MetaCyc)
+    1 "FMNH2" + 1 "NAD" <> 1 "FMN" + 1 "NADH" + 2 "PROTON"
+    ~
+
+"RXN-12444": # sorting inconsistent subset (rev as MetaCyc)
+    1 "NADP" + 1 "FMNH2" <- 1 "FMN" + 1 "NADPH" + 2 "PROTON"
+    ~
+
+"BENZALDEHYDE-DEHYDROGENASE-NAD+-RXN": # sorting inconsistent subset (Metacyc)
+    "BENZALDEHYDE" + "WATER" + "NAD" <> "BENZOATE" + "NADH" + 2  "PROTON"
+    ~
+    #REVERSIBLE
+
+"AMYLOMALT-RXN": # made REV to solve incons subset.
+#Effectively breaking/making same bond
+    "MALTOTETRAOSE" + "GLC" <> "MALTOTRIOSE" + "ALPHA-MALTOSE"
+    ~
+    #RIGHT-TO-LEFT
+
+"RXN-7968": # EC 1.1.1.282  BMP menaquinone (<- in BioCyc, -> in MetaCyc)
+    "SHIKIMATE" + "NAD(P)" -> "3-DEHYDRO-SHIKIMATE" + "NAD(P)H" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+
+"ACETATEKIN-RXN": # as per MetaCyc
+    "ATP" + "ACET" <> "ADP" + "ACETYL-P"
+    ~
+    #REVERSIBLE
+
+"RXN-8899": # As per MetaCyc and BioCyc, no EC, SER and GLY degradation
+    "PROTON" + "2-AMINOACRYLATE" + "WATER" -> "PYRUVATE" + "AMMONIUM"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-15127": # As per MetaCyc and BioCyc, no EC, SER and GLY degradation
+    "PROTON" + "CPD-16015" + "WATER" -> "PYRUVATE" + "AMMONIUM"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-15125": # SER degradation. MetaCyc L-R, no EC
+    "SER" -> "PROTON" + "2-AMINOACRYLATE" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+"DLACTDEHYDROGNAD-RXN": # rev in MetaCyc
+    "D-LACTATE" + "NAD" <> "NADH" + "PYRUVATE" + "PROTON"
+    ~
+
+######## Reacs producing CARBON-DIOXIDE
+
+##"ISOCITDEH-RXN": TCA , REV in model and MetaCyc and BRENDA
+##    "THREO-DS-ISO-CITRATE" + "NADP" <> "2-KETOGLUTARATE" + "CARBON-DIOXIDE" + "NADPH"
+##    ~
+##    #REVERSIBLE
+	
+"PYRUFLAVREDUCT-RXN": # Gene GJJB-867 in BioCyc, REV in MetaCyc but similar to "PYRUVDEH-RXN", L-R ->
+    "PYRUVATE" + "CO-A" + 2 "Oxidized-ferredoxins" -> "ACETYL-COA" + "CARBON-DIOXIDE" + 2 "Reduced-ferredoxins" + "PROTON"
+    ~
+    #REVERSIBLE
+
+"GCVMULTI-RXN": # In BioCyc RP62A #LEFT-TO-RIGHT , No EC assigned
+    "GLY" + "THF-GLU-N" + "NAD" -> "METHYLENE-THF-GLU-N" + "AMMONIUM" + "CARBON-DIOXIDE" + "NADH"
+    ~
+    #REVERSIBLE
+
+##"GLUTACONYL-COA-DECARBOXYLASE-RXN": EC 4.1.1.70, MetaCyc and BioCyc REV, BRENDA no info
+##    "PROTON" + "GLUTACONYL-COA" <> "CARBON-DIOXIDE" + "CROTONYL-COA"
+##    ~
+##    #REVERSIBLE
+
+##"2KETO-3METHYLVALERATE-RXN": # REV MetaCyc and BioCyc, PWY isoleucine degrad and biosynth
+##    "2-KETO-3-METHYL-VALERATE" + "NAD" + "CO-A" <> "2-METHYL-BUTYRYL-COA" + "NADH" + "CARBON-DIOXIDE"
+##    ~
+##    #REVERSIBLE
+
+"2-OXOGLUTARATE-SYNTHASE-RXN": # Similar to "PYRUVDEH-RXN", L-R -> EC 1.2.7.3, reductive imcomplete TCA
+    "2-KETOGLUTARATE" + "CO-A" + 2 "Oxidized-ferredoxins" -> "SUC-COA" + "CARBON-DIOXIDE" + 2 "Reduced-ferredoxins" + "PROTON"
+    ~
+    #REVERSIBLE
+
+"RXN-7643":
+    "PROTON" + "2-KETO-ISOVALERATE" -> "CPD-7000" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+"7KAPSYN-RXN":
+    "PROTON" + "CPD-558" + "L-ALPHA-ALANINE" -> "CARBON-DIOXIDE" + "CO-A" + "8-AMINO-7-OXONONANOATE"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"P-PANTOCYSDECARB-RXN":
+    "PROTON" + "R-4-PHOSPHOPANTOTHENOYL-L-CYSTEINE" -> "PANTETHEINE-P" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+"DIAMINOPIMDECARB-RXN":
+    "MESO-DIAMINOPIMELATE" + "PROTON" -> "LYS" + "CARBON-DIOXIDE"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"DXS-RXN":
+    "PROTON" + "PYRUVATE" + "GAP" -> "DEOXYXYLULOSE-5P" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+"OROTPDECARB-RXN":
+    "PROTON" + "OROTIDINE-5-PHOSPHATE" -> "CARBON-DIOXIDE" + "UMP"
+    ~
+    #LEFT-TO-RIGHT
+
+"HEMN-RXN":
+    "COPROPORPHYRINOGEN_III" + 2 "S-ADENOSYLMETHIONINE" -> "PROTOPORPHYRINOGEN" + 2 "CARBON-DIOXIDE" + 2  "MET" + 2  "CH33ADO"
+    ~
+    #LEFT-TO-RIGHT
+
+"DIPHOSPHOMEVALONTE-DECARBOXYLASE-RXN":
+    "CPD-641" + "ATP" -> "DELTA3-ISOPENTENYL-PP" + "CARBON-DIOXIDE" + "ADP" + "Pi"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"ALLOPHANATE-HYDROLASE-RXN":
+    3 "PROTON" + "WATER" + "CPD-578" -> 2 "AMMONIUM" + 2 "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+"UROGENDECARBOX-RXN":
+    "UROPORPHYRINOGEN-III" + 4 "PROTON" -> "COPROPORPHYRINOGEN_III" + 4 "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-7800":
+    "PROTON" + "CPD-7100" -> "2K-4CH3-PENTANOATE" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-3341":
+    "CPD-2961" + "NAD" -> "RIBULOSE-5P" + "CARBON-DIOXIDE" + "NADH"
+    ~
+    #LEFT-TO-RIGHT
+
+"ACETOLACTSYN-RXN":
+    "PROTON" + 2 "PYRUVATE" -> "2-ACETO-LACTATE" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+"PREPHENATEDEHYDROG-RXN":
+    "PREPHENATE" + "NAD" -> "P-HYDROXY-PHENYLPYRUVATE" + "CARBON-DIOXIDE" + "NADH"
+    ~
+    #LEFT-TO-RIGHT
+
+"ACETOLACTATE-DECARBOXYLASE-RXN":
+    "PROTON" + "2-ACETO-LACTATE" -> "CPD-10353" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+"1.1.1.39-RXN":
+    "MAL" + "NAD" -> "PYRUVATE" + "CARBON-DIOXIDE" + "NADH"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-12610":
+    "CPD-13576" + "AMINO-HYDROXYMETHYL-METHYLPYRIMIDINE-PP" + 2 "PROTON" -> "THIAMINE-P" + "CARBON-DIOXIDE" + "PPI"
+    ~
+    #LEFT-TO-RIGHT
+
+"IGPSYN-RXN":
+    "PROTON" + "CARBOXYPHENYLAMINO-DEOXYRIBULOSE-P" -> "INDOLE-3-GLYCEROL-P" + "CARBON-DIOXIDE" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+"ACETOOHBUTSYN-RXN":
+    "PROTON" + "PYRUVATE" + "2-OXOBUTANOATE" -> "2-ACETO-2-HYDROXY-BUTYRATE" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"2.5.1.64-RXN":
+    "PROTON" + "ISOCHORISMATE" + "2-KETOGLUTARATE" -> "CPD-9924" + "CARBON-DIOXIDE"
+    ~
+    #LEFT-TO-RIGHT
+
+"FHLMULTI-RXN":
+    "PROTON" + "FORMATE" -> "CARBON-DIOXIDE" + "HYDROGEN-MOLECULE"
+    ~
+    #LEFT-TO-RIGHT
+
+"1.2.1.25-RXN":
+    "2-KETO-ISOVALERATE" + "CO-A" + "NAD" -> "ISOBUTYRYL-COA" + "CARBON-DIOXIDE" + "NADH"
+    ~
+    #LEFT-TO-RIGHT
+
+######### END REACS PRODUCING CARBON DIOXIDE
+    
+"RXN-12718":  # IRREV L-R MetaCyc (Brenda no info), androstenedione degradation 
+    "3-HYDROXY-5917-TRIOXO-45910-DISECOA" + "WATER" -> "CPD-13711" + "CPD-13712" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-12609": # involved thiamine biosynth; IRREV in MetaCyC NO COGE EL CAMBIO#####
+    "CPD-13575" -> "CPD-13576"
+    ~
+    #IRREVERSIBLE-LEFT-TO-RIGHT
+
+"RXN66-545": # PRO experimental auxotrophie
+    "4-HYDROXY-L-PROLINE" + "MENAQUINONE" -> "REDUCED-MENAQUINONE" + "PYRROLINE-HYDROXY-CARBOXYLATE" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+"SULFOCYS-RXN": # CYS production (although is dead for now)
+    "ACETYLSERINE" + "S2O3" <> "PROTON" + "SULFO-CYSTEINE" + "ACET"
+    ~
+    #REVERSIBLE
+
+"ASPARTATE-SEMIALDEHYDE-DEHYDROGENASE-RXN": # EC-1.2.1.11 AA biosynthesis (CYS, MET, ASP)
+    "L-ASPARTATE-SEMIALDEHYDE" + "Pi" + "NADP" <> "L-BETA-ASPARTYL-P" + "NADPH" + "PROTON"
+    ~
+    #REVERSIBLE
+
+"CARBAMATE-KINASE-RXN": # ornithine metabolism
+    "AMMONIUM" + "CARBON-DIOXIDE" + "ATP" <> 2 "PROTON" + "CARBAMOYL-P" + "ADP"
+    ~
+    #REVERSIBLE
+
+"1.8.4.8-RXN":
+    "3-5-ADP" + "SO3" + "Ox-Thioredoxin" + 2 "PROTON" <> "PAPS" + "Red-Thioredoxin"
+    ~
+    #REVERSIBLE
+    
+"TYROSINE-AMINOTRANSFERASE-RXN":
+    "TYR" + "2-KETOGLUTARATE" <> "P-HYDROXY-PHENYLPYRUVATE" + "GLT"
+    ~
+    #REVERSIBLE
+
+"NICOTINAMID-RXN":
+    "NIACINAMIDE" + "WATER" -> "AMMONIUM" + "NIACINE"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-9718": # ACETOIN degradation
+    "ACETOIN" + "CO-A" + "NAD" -> "ACETALD" + "ACETYL-COA" + "NADH" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-12614": # Uncons mets (H and O)
+    "GLY" + "OXYGEN-MOLECULE" -> "CPD-12279" + "HYDROGEN-PEROXIDE" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"CATAL-RXN": # Fixing stoi inconsistencies involving H and O comp
+    2 "HYDROGEN-PEROXIDE" -> 2 "WATER" + "OXYGEN-MOLECULE"
+    ~
+    #LEFT-TO-RIGHT
+
+##"RXN-12541": # 'SUPER-OXIDE' now in Unwanted (reac not in model)
+##    2 "OXYGEN-MOLECULE" + 2 "FE+2" -> 2 "SUPER-OXIDE" + 2 "FE+3"
+##    ~
+##    #PHYSIOL-LEFT-TO-RIGHT
+
+##"RXN-12540": # 'OH' now in Unwanted (reac not in model)
+##    "HYDROGEN-PEROXIDE" + "FE+2" -> "CPD-12377" + "OH" + "FE+3"
+##    ~
+##    #LEFT-TO-RIGHT
+
+##"SUPEROX-DISMUT-RXN": # 'SUPER-OXIDE' now in Unwanted (reac not in model)
+##    2 "SUPER-OXIDE" + 2 "PROTON" -> "HYDROGEN-PEROXIDE" + "OXYGEN-MOLECULE"
+##    ~
+##    #LEFT-TO-RIGHT
+
+"RXN-14117":
+    "PYRUVATE" + "GTP" <- "PHOSPHO-ENOL-PYRUVATE" + "GDP" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+"RXN-14207":
+    "PYRUVATE" + "DGTP" <- "PHOSPHO-ENOL-PYRUVATE" + "DGDP" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+"GLUTDEHYD-RXN": # REV in MetaCyc and BRENDA # REV in BioCyc 20.5 but we use 19
+    "GLT" + "WATER" + "NADP" <> "PROTON" + "AMMONIUM" + "2-KETOGLUTARATE" + "NADPH"
+    ~
+    #REVERSIBLE
+
+##"L-GLN-FRUCT-6-P-AMINOTRANS-RXN": # REV MetaCyc, IRREV BRENDA (Mark suggested to leave as REV)
+##    "FRUCTOSE-6P" + "GLN" -> "D-GLUCOSAMINE-6-P" + "GLT"
+##    ~
+##  #REVERSIBLE
+
+"COA-DISULFIDE-REDUCTASE-NADH-RXN": # EC 1.8.1.14,reac with NADH removed (inco subset)
+            #Strong pref NADPH Saureus, REV in METACYC
+    2 "CO-A" + "NADP" <> "CPD-317" + "NADPH" + "PROTON"
+    ~
+    #REVERSIBLE
+
+"BUTANAL-DEHYDROGENASE-RXN":
+    "BUTANAL" + "CO-A" + "NAD(P)" <> "BUTYRYL-COA" + "NAD(P)H" + "PROTON"
+    ~
+    #REVERSIBLE
+
+"NADPH-DEHYDROGENASE-FLAVIN-RXN": # <- MetaCyc but REV in BRENDA and eQuilibrator
+    "CPD-316" + "NADP" <> 2 "PROTON" + "RIBOFLAVIN" + "NADPH"
+    ~
+
+"SUCCINYLDIAMINOPIMTRANS-RXN": # AA util EXP CURATION ; REV MetaCyc & BRENDA
+    "2-KETOGLUTARATE" + "N-SUCCINYLLL-2-6-DIAMINOPIMELATE" <> "GLT" + "N-SUCCINYL-2-AMINO-6-KETOPIMELATE"
+    ~
+    #REVERSIBLE
+
+"PRTRANS-RXN": # AA util EXP CURATION ; REV MetaCyc & BRENDA
+    "N-5-PHOSPHORIBOSYL-ANTHRANILATE" + "PPI" <> "ANTHRANILATE" + "PRPP"
+    ~
+    #REVERSIBLE
+
+"BRANCHED-CHAINAMINOTRANSFERLEU-RXN": # AA util EXP CURATION ; REV MetaCyc & BRENDA
+    "LEU" + "2-KETOGLUTARATE" <> "GLT" + "2K-4CH3-PENTANOATE"
+    ~
+    #REVERSIBLE
+
+"HOMOSERDEHYDROG-RXN": # AA util EXP CURATION ; REV in BRENDA for several orgs
+    "HOMO-SER" + "NAD(P)" <> "L-ASPARTATE-SEMIALDEHYDE" + "NAD(P)H" + "PROTON"
+    ~
+    
+"ACETOLACTREDUCTOISOM-RXN": # AA util EXP CURATION ; REV in BRENDA for several orgs
+    "CPD-13357" + "NADP" <> "2-ACETO-LACTATE" + "NADPH" + "PROTON"
+    ~
+    #REVERSIBLE
+
+"PSERTRANSAM-RXN": # REV in MetaCyc 23.0 and BRENDA. Transaminases usually REV
+    "3-P-SERINE" + "2-KETOGLUTARATE" <> "GLT" + "3-P-HYDROXYPYRUVATE"
+    ~
+    #REVERSIBLE
+
+## NOTE: PSERTRANSAM-RXN, PGLYCDEHYDROG-RXN IREV in BioCyc 23.0 S.epi BUT
+    ## REV in MetaCyc 23.0 (tier 1, so leave REV)
+
+"RXN0-5114": # IRREV in Meta, Brenda and Bio 23.0 (REV in Bio 20.1)
+    "WATER" + "3-P-SERINE" -> "Pi" + "SER"
+    ~
+
+##"MALTODEXGLUCOSID-RXN": ## Now in Unwanted
+##    "glycogen" -> "GLC"
+##    ~
+
+
+"1.1.1.34-RXN": # REV in MetaCyc 23.0
+    "CO-A" + "MEVALONATE" + 2 "NADP" <> 2 "NADPH" + 1 "3-HYDROXY-3-METHYL-GLUTARYL-COA" + 2 "PROTON"
+    ~
+
+"NADPYROPHOSPHAT-RXN":
+    "NAD" + "WATER" -> "AMP" + "NICOTINAMIDE_NUCLEOTIDE" + 2 "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-7593":
+	"WATER" + "4-IMIDAZOLONE-5-PROPIONATE" + "OXYGEN-MOLECULE" + 2 "PROTON"
+	-> "FORMATE" + "4-OXOGLUTARAMATE" + "AMMONIUM"
+	~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-7594":
+    "4-OXOGLUTARAMATE" + "WATER" -> "2-KETOGLUTARATE" + "AMMONIUM"
+    ~
+    #LEFT-TO-RIGHT
+    # spontaneous
+
+"GLUTACONYL-COA-DECARBOXYLASE-RXN":
+    "GLUTACONYL-COA" + "PROTON" -> "CARBON-DIOXIDE" + "CROTONYL-COA"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"UREASE-RXN":
+    2 "PROTON" + "UREA" + "WATER" -> 2 "AMMONIUM" + "CARBON-DIOXIDE"
+    ~
+    #BRENDA described as rev only in water-organic solvent mixtures
+        # in a plant (Canavalia ensiformis)
+
+"RXN-14971":
+	"SUC" + "MENAQUINONE" <> "REDUCED-MENAQUINONE" + "FUM"
+	~
+	# REVERSIBLE
+            # rev in MetaCyc 24.0, also low St Gibbs Free Energy (-5kcal/mol)
+                # some reacs have high (60 or 80)
+                
+"RXN-14270":
+    "AICAR" + "PPI"<-"CPD-3762" + "PRPP"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+        # MetaCyc 24.0 in PGDB written oposite dir
+
+"ACETATE--COA-LIGASE-RXN":
+    "CO-A" + "ACET" + "ATP" <> "ACETYL-COA" + "AMP" + "PPI"
+    ~
+    # Low Gibbs, REV equilibrator

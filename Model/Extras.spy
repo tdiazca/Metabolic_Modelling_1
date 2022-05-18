@@ -1,0 +1,547 @@
+Structural()
+
+# Compounds with undefined formula: biosynthesis reactions
+# added as condensed reacs
+
+
+########################### General ATPase reac (NGAM and GAM costs)
+
+"ATPASE-RXN": # EC 3.6.1.3/3.6.1.15 gene: SERP0742
+    "ATP" + "WATER" -> "ADP" + "Pi" + "PROTON" + "x_AWork"
+    ~
+
+############################# 
+
+"LACTATE-RACEMASE-RXN": # EC 5.1.2.1
+    "L-LACTATE" <> "D-LACTATE"
+    ~
+
+#############################    PTS system
+
+"2.7.3.9-RXN": # EC-2.7.3.9; gene: SERP0670
+    "PHOSPHO-ENOL-PYRUVATE" + "Hpr-Histidine" ->
+    "PYRUVATE" + "Hpr-pi-phospho-L-histidines"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+    #phosphoenolpyruvate protein phosphotransferase
+    # PTS enz I in Ecoli
+
+############################ RESPIRATION
+
+"L-LACTDEHYDROGFMN-RXN": # in Heinemann 2005 S. aureus model (ETC)
+            # DLACTDEHYDROGFAD-RXN already in model with D-LACTATE
+    "L-LACTATE" + "MENAQUINONE" -> "PYRUVATE" + "REDUCED-MENAQUINONE"
+    ~
+
+
+########################### MENAQUINONE BMP
+
+"RXN-8992":# EC 2.5.1.90; genes: ispB and ispA , PWY octaprenyl diphosphate biosynthesis
+    "FARNESYL-PP" + 5 "DELTA3-ISOPENTENYL-PP" <> "OCTAPRENYL-DIPHOSPHATE" + 5 "PPI"
+    ~
+    #LEFT-TO-RIGHT
+
+############################# BUTANEDIOL PRODUCTION 
+
+"RR-BUTANEDIOL-DEHYDROGENASE-RXN": # EC 1.1.1.4 (not in dbs), gene: SERP2032 in KEGG
+    "BUTANEDIOL" + "NAD" <> "ACETOIN" + "NADH" + "PROTON"
+    ~
+    #REVERSIBLE
+
+############################ ACETOIN PRODUCTION
+
+##"ACETOLACTSYN-RXN": already in model # EC 2.2.1.6 acetolactate synthase, genes: SERP_RS 08320/8325/10690
+
+"RXN-6081": # SPONTANEOUS, "Acceptor" and "Donor-H2" for "MENAQUINONE", since both transfer two electrons and two protons 
+    "2-ACETO-LACTATE" + "MENAQUINONE" + "PROTON"
+    -> "DIACETYL" + "CARBON-DIOXIDE" + "REDUCED-MENAQUINONE"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-11032": # EC 1.1.1.304, gene: SERP2379 
+    "ACETOIN" + "NAD" <- "DIACETYL" + "NADH" + "PROTON"
+    ~
+    #RIGHT-TO-LEFT
+    # "CPD-255" for "ACETOIN"
+
+############################ GLYCOGEN DEGRADATION I
+
+"GLYCOPHOSPHORYL-RXN": # EC 2.4.1.1
+    "glycogen" + "Pi" -> "GLC-1-P" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+    # WATER needed for balance
+
+########################### GLYCOGEN BIOSYNTHESIS
+
+#GLYCOGENSYNTH-PWY:glycogen biosynthesis I (from ADP-D-Glucose)
+    # glycogen accumulating bacteria use ADP-D-glucose (MetaCyc, not in BioCyc RP62A)
+
+"GLUC1PADENYLTRANS-RXN": #EC 2.7.7.27
+    "PROTON" + "GLC-1-P" + "ATP" -> "ADP-D-GLUCOSE" + "PPI"
+    ~
+    #LEFT-TO-RIGHT
+
+"GLYCOGENSYN-RXN": #EC 2.4.1.21 "1-4-alpha-D-Glucan" Substituted by glycogen
+    "ADP-D-GLUCOSE" + "WATER" <> "ADP" + "glycogen" + "PROTON"
+    ~
+    #REVERSIBLE
+    #H2O and H added for balance ; REV BRENDA for Ecoli
+
+########################### PIA BIOSYNTHESIS 
+
+    ## BioCyc 24.0 biofilm operon icaADBC
+        # HTH-type negative transcriptional regulator IcaR
+        # Gene: SERP2292
+
+"PIA1_synth": # EC 2.4.1.- PgaC Ecoli; Sepi RP62A gene: SERP2293 (icaAD)
+    "UDP-N-ACETYL-D-GLUCOSAMINE" + "WATER" -> "PROTON" + "PIA1" + "UDP"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"PIA2_synth": # EC-3.5.1-; gene: SERP2295; (icaB)
+                # poly-beta-1,6-N-acetyl-D-glucosamine N-deacetylase
+    "PIA1" + "WATER" -> "PIA2" + "ACET"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"PIA3_synth": # EC-2.3.1.46 
+                  # homoserine O-succinyltransferase
+                      # E.coli metA, no genes Sepi 24.0
+        "PIA1" + "SUC-COA" -> "PIA3" + "CO-A"
+        ~
+        #PHYSIOL-LEFT-TO-RIGHT
+        # O-succylation of sugar residues in PIA - mechanism unknown (therefore no gene info)
+
+
+############################# Reacs with preference for either NADPH or NADH
+
+"24-DIAMINOPENTANOATE-DEHYDROGENASE-RXN-(NAD)": # Solved IncoSubset!!: EC 1.4.1.12 uses either, NADH more imp in pathway.
+    "WATER" + "NAD" + "24DINH2-PENTANOATE"
+    -> "NADH" + "CPD-299" + "PROTON" + "AMMONIUM"
+    ~
+
+############################ AA BIOSINTHESYS and DEGRADATION
+
+#################### PHE biosynthesis
+
+"PHEAMINOTRANS-RXN": # EC-2.6.1.57 / EC-2.6.1.9 (genes: SERP0387 (hisC) KEGG/BioCyc RP62A)
+    # This enz can have as substrates: TYR, PHE, TRP and histinidiol phosphate
+    "PHENYL-PYRUVATE" + "GLT" <> "PHE" + "2-KETOGLUTARATE"
+    ~
+    #REVERSIBLE
+
+#################### CYS biosynthesis (from methionine (through/and homocysteine))
+    #### An essential reac was exporter for Autoinducer_2A (in Extras.spy)
+
+"325-BISPHOSPHATE-NUCLEOTIDASE-RXN": # EC-3.1.3.7_3.1.13.3 ; gene: SERP1267 in KEGG and BioCyc, sulfur met.
+                                      # needed for obtaining HS, and so BS of CYS and MET from SER.
+    "3-5-ADP" + "WATER" -> "Pi" + "AMP"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+    
+        # gene seq in ref and lab strain (ACT). PFAM = DHH phosphatase family; phosphoesterases
+        # catalyse processive degradation of single-stranded DNA in a 5'-to-3' direction
+
+### Reacs below included for accuracy (but CYS biosynth already enable)
+
+"RXN-17600": # EC-2.5.1.47 (already in model)
+    "ACETYLSERINE" + "HOMO-CYS" <> "L-CYSTATHIONINE" + "ACET" + "PROTON"
+    ~
+
+################### MET biosynthesis
+
+"O-SUCCHOMOSERLYASE-RXN": # EC 2.5.1.48 ; gene: SERP0037                              
+    "O-SUCCINYL-L-HOMOSERINE" + "CYS" <> "L-CYSTATHIONINE" + "SUC" + "PROTON"
+    ~
+    #REVERSIBLE
+    # In ref_RP62A and lab_strain (ACT) 
+
+"RXN-9384": # EC-2.5.1.48; gene: SERP0037 vs 24.0
+                             # In ref_RP62A and lab_strain (ACT) 
+    "O-SUCCINYL-L-HOMOSERINE" + "HS" <> "PROTON" + "HOMO-CYS" + "SUC"
+    ~
+    #REVERSIBLE
+
+
+################# Reacs below added for accuracy (but MET BS is already enabled)
+
+"CYSTATHIONINE-BETA-LYASE-RXN": # gene: SERP0036                           
+    "L-CYSTATHIONINE" + "WATER" -> "AMMONIUM" + "PYRUVATE" + "HOMO-CYS"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+    # EC-4.4.1.13 (EC-4.4.1.8) genes: SERP0036 KEGG (MET bs)
+    # In ref_RP62A and lab_strain (ACT) 
+
+"RXN-15131": # EC-4.4.1.13 (EC-4.4.1.8), genes: SERP0036 (MET bs)
+              # In ref_RP62A and lab_strain (ACT)  
+    "L-CYSTATHIONINE" -> "PROTON" + "2-AMINOACRYLATE" + "HOMO-CYS"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"Acetylhomoser_cys_rxn_b": # 'EC-2.5.1.48'
+    #Added according to pathway in Kegg for RP62A
+        # In ref_RP62A and lab_strain (ACT)  
+    "CPD-667" + "CYS" -> "PROTON" + "L-CYSTATHIONINE" + "ACET"
+    ~
+    #LEFT-TO-RIGHT
+
+################## ASP biosynthesis
+
+"ASPAMINOTRANS-RXN": # EC-2.6.1.1, gene: SERP2159 
+    #in ref and lab strain (ACT).
+    # PFAM = Aminotransferase class-III subfamily.
+    "L-ASPARTATE" + "2-KETOGLUTARATE" <> "GLT" + "OXALACETIC_ACID"
+    ~
+    #REVERSIBLE
+
+################## ASN biosynthesis
+
+"RXN490-3616": # gene: SERP1024 (asnC)
+    "ASN-tRNAs" + "L-ASPARTATE" + "ATP" -> "L-aspartyl-tRNAAsn" + "PPI" + "AMP"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+    # EC-6.1.1.22; gene: SERP1024 (BioCyc)
+    # PFAM = Aminoacyl-tRNA synthetase (asparaginyl-tRNA synthetase)
+
+"6.3.5.6-RXN": # EC-6.3.5.6; gene: SERP1438 (gatA),
+                # aspartyl-tRNA(Asn)/glutamyl-tRNA(Gln) amidotransferase subunit A
+                # PFAM = amidase
+    "GLN" + "L-aspartyl-tRNAAsn" + "ATP" + "WATER"
+    -> "GLT" + "Charged-ASN-tRNAs" + "Pi" + "ADP" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+    
+"RXN-12460": # EC-3.1.1.29; gene: SERP0140 (pth)
+               # PFAM = peptidyl-tRNA hydrolase
+    "Charged-ASN-tRNAs" + "WATER" -> "ASN" + "ASN-tRNAs" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+################## THR DEGRA / GLY BS (AA util)
+
+"THREONINE-ALDOLASE-RXN": # EC-4.1.2.5; gene: SERP0883 in Ref RP62A,
+                                # gLY 1 in Lab strain RP62A
+    "THR" <> "ACETALD" + "GLY"
+    ~
+    #LEFT-TO-RIGHT
+
+# EC-4.1.2.48 in KEGG for RP62A.
+# Reac added cause gene SERP_RS04450 in BioCyc RP62A 22.6 but no reaction associated with it. This
+# gene encodes the enz threonine aldolase. Exactly same AA seq in S. epi M23864:W2(grey) in BRENDA
+# as in the lab (gLY 1) and ref strain (gene SERP_RS04450) for EC-4.1.2.5.
+# Source TrEMBL, annotation score low (1 from 1-5), status unreviewed.
+# BRENDA AA seq EC-4.1.2.48 S.aureus similar but with several AA changes.
+
+################  LEU / ILE degradation (AA util)
+
+"2KETO-4METHYL-PENTANOATE-DEHYDROG-RXN": # EC-1.2.1.25; gene: SERP1076
+    "2K-4CH3-PENTANOATE" + "CO-A" + "NAD"
+    -> "ISOVALERYL-COA" + "CARBON-DIOXIDE" + "NADH"
+    ~
+    #LEFT-TO-RIGHT
+
+
+############ CELL MEMBRANE SYNTHESIS
+
+"Palmitate_synth": # A water molecule added on Left side for balance
+    8 "ACETYL-COA" + 14 "NADPH" + 7 "ATP" + 6 "PROTON" + 1 "WATER"
+    <> 1 "PALMITATE" + 14 "NADP" + 8 "CO-A" + 7 "ADP" + 7 "Pi"
+    ~
+
+"PA_synth_NADPH": # Phosphatidic acid
+    "DIHYDROXY-ACETONE-PHOSPHATE" + "NADPH" + 2 "PALMITATE"
+    <> "L-PHOSPHATIDATE" + "NADP" 
+    ~
+
+"DIACYLGLYKIN-RXN": # EC 2.7.1.107; gene: SERP1136 (dgkA) 
+    "ATP" + "DIACYLGLYCEROL" <> "PROTON" + "L-PHOSPHATIDATE" + "ADP"
+    ~
+    #LEFT-TO-RIGHT
+
+"CDPDIGLYSYN-RXN": # EC 2.7.7.41; gene: SERP0828
+    "CTP" + "L-PHOSPHATIDATE" + "PROTON" <> "CDPDIACYLGLYCEROL" + "PPI"
+    ~
+    #LEFT-TO-RIGHT
+
+"PHOSPHAGLYPSYN-RXN": # EC 2.7.8.5; gene: SERP0850 (pgsA)
+    "CDPDIACYLGLYCEROL" + "GLYCEROL-3P" <>
+    "CMP" + "L-1-PHOSPHATIDYL-GLYCEROL-P" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # CDPgad , "L-1-PHOSPHATIDYL-GLYCEROL-P" (call it PG-P ?)
+
+"PGPPHOSPHA-RXN": # EC 3.1.3.27 ,in BioCyc
+    "L-1-PHOSPHATIDYL-GLYCEROL-P" + "WATER" -> "L-1-PHOSPHATIDYL-GLYCEROL" + "Pi"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"CARDIOLIPSYN-RXN": # EC 2.7.8- ; genes: SERP0885 (cls-1), SERP1695 (cls-2)
+    2 "L-1-PHOSPHATIDYL-GLYCEROL" -> "CARDIOLIPIN" + "GLYCEROL"
+    ~
+    #LEFT-TO-RIGHT
+
+############ PETDITOGLYCAN SYNTHESYS
+
+"RXN-11295": # gene: SERP1844
+    "CPD-12298" + "Charged-GLY-tRNAs" <> "CPD-12242" + "GLY-tRNAs" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-11296": # gene: SERP1844
+    "CPD-12242" + 2 "Charged-GLY-tRNAs" <> "CPD-12243" + 2 "GLY-tRNAs" + 2 "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-11297": # gene: SERP0947
+    "CPD-12243" + 2 "Charged-GLY-tRNAs" -> "CPD-12297" + 2 "GLY-tRNAs" + 2 "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-11291": 
+    2 "CPD-12297" <> "PROTON" + "UNDECAPRENYL-DIPHOSPHATE" + "CPD-12259"
+    ~
+    #LEFT-TO-RIGHT
+
+"GLYCINE--TRNA-LIGASE-RXN": # EC 6.1.1.14; gene: SERP1132 (glyS)
+    "GLY-tRNAs" + "GLY" + "ATP" -> "Charged-GLY-tRNAs" + "PPI" + "AMP"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-11339": # reac with all known compounds but was missing in MODEL
+    "CPD-7695" + "AMMONIUM" <> "CPD-12298" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+############### WTA SYNTHESIS
+
+"RIBITOL-5-PHOSPHATE-2-DEHYDROGENASE-RXN": # gene: SERP0197
+    "CPD-372" + "NADP" <- "RIBULOSE-5P" + "NADPH" + "PROTON"
+    ~
+    #PHYSIOL-RIGHT-TO-LEFT
+
+"RXN-18006":
+    "CPD-5802" + "CPD-606" -> "CPD-19301" + "CMP" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-18007": # "CPD-19301" only in MetaCyc
+    "CPD-1111" + "CPD-19301" -> "CMP" + "CPD-19302" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-18014":
+    "ATP" + "D-ALANINE" + "D-alanine-carrier-protein" -> "D-Ala-DltC" + "AMP" + "PPI"
+    ~
+    #PHYSIOL-LEFT-TO-RIGH
+    # Unknowns: "D-alanine-carrier-protein", "D-Ala-DltC"
+
+"RXN-18008": 
+    "CPD-1111" + "CPD-19302" -> "CMP" + "CPD-19303" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+    # Unknowns: "CPD-19303" (Its a polymer!!): n-1 CDP-ribitol (1111)
+    #= n-1 CMP and polymer (Rib-ol-P)n)-
+
+"2.4.1.53-RXN": # Unknowns: "CPD-19303", "CPD-19793"
+    "UDP-N-ACETYL-D-GLUCOSAMINE" + "CPD-19303" -> "CPD-19793" + "UDP" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-18020": # Unknowns: "CPD-19793"
+    "UDP-N-ACETYL-D-GLUCOSAMINE" + "CPD-19793" -> "CPD-19311" + "UDP" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"TRANS-RXN-314": # Unknowns: "CPD-19311" 
+    "CPD-19311" + "ATP" + "WATER" -> "CPD-19311_peri" + "ADP" + "Pi" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+    # EC-7.5.2.4 TA ABC transporter, from cytoplasm to extracellular space
+        # where it will bind PG in synthesis of cell wall etc.
+
+"RXN-18013":  
+    "D-Ala-DltC" + "L-1-PHOSPHATIDYL-GLYCEROL" -> "1-Phosphatidyl-2-O-D-Ala-Glycerol"
+    + "D-alanine-carrier-protein"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+    # Unknowns: "L-1-PHOSPHATIDYL-GLYCEROL" (make PG),
+    # "1-Phosphatidyl-2-O-D-Ala-Glycerol", "D-alanine-carrier-protein", "D-Ala-DltC"
+
+"2.7.7.40-RXN":
+    "CTP" + "CPD-372" + "PROTON" <> "CPD-1111" + "PPI"
+    ~
+    #LEFT-TO-RIGHT
+
+"6.1.1.13-RXN": # genes: SERP0518 (dltA), SERP0520 (dltC)
+    "1-Phosphatidyl-2-O-D-Ala-Glycerol" + "CPD-19311_peri"
+    -> "L-1-PHOSPHATIDYL-GLYCEROL" + "CPD-19305" 
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+    # Unknowns: "CPD-19311", "CPD-19305", "L-1-PHOSPHATIDYL-GLYCEROL",
+    # "1-Phosphatidyl-2-O-D-Ala-Glycerol",
+    # "CPD-19305" is WTA to be covalently linked to PG precursor
+
+"RXN-18027":
+    "CPD-19305" + "CPD-12297" + "WATER" -> "Rbo-P-Teichoic-aureus-peptidoglycan"
+    + "CPD-9646" + "UNDECAPRENYL-DIPHOSPHATE" + 2 "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+     # It binds WTA (19305) to a precursor of peptidoglycan 
+
+############ LTA SYNTHESIS
+
+"RXN-18039": 
+    "1-Phosphatidyl-2-O-D-Ala-Glycerol" + "GlcNAc-Gro-P-n-Gro-P-Glc2-DAG"
+    -> "L-1-PHOSPHATIDYL-GLYCEROL" + "Type-I-LTA"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+    # Unknown: ALL mets!!!
+
+"RXN-18038": # Unknown: "Gro-P-n-Gro-P-Glc2-DAG" , "GlcNAc-Gro-P-n-Gro-P-Glc2-DAG" 
+    "CPD-19317" + "Gro-P-n-Gro-P-Glc2-DAG" -> "GlcNAc-Gro-P-n-Gro-P-Glc2-DAG" + "CPD-9646" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-18037": # Unknown: "Gro-P-Glc2-DAG" plus the same
+    "L-1-PHOSPHATIDYL-GLYCEROL" + "Gro-P-Glc2-DAG"
+    -> "Gro-P-n-Gro-P-Glc2-DAG" + "DIACYLGLYCEROL"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-15117": # Unknowns: same
+    "CPD-12575" + "D-Glucosyl-12-diacyl-glycerols"
+    <> "diacyl-3-O-glucl-1-6-gluc-sn-glycerol" + "UDP"
+    + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-18035": # Unknown: same
+    "L-1-PHOSPHATIDYL-GLYCEROL" + "diacyl-3-O-glucl-1-6-gluc-sn-glycerol"
+    -> "Gro-P-Glc2-DAG"
+    + "DIACYLGLYCEROL"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-18036":
+    "UDP-N-ACETYL-D-GLUCOSAMINE" + "CPD-9646" -> "CPD-19317" + "UDP"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-16648": # gene: SERP0606
+    "CPD-12575" + "DIACYLGLYCEROL"
+    <> "D-Glucosyl-12-diacyl-glycerols" + "UDP" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # Unknown: "D-Glucosyl-12-diacyl-glycerols"
+
+
+##### REACTIONS WITH GENE ASSOCIATION ADDED FROM PGDB VS 24.0 ##############
+#####    ALIVE IF INCLUDED
+#########   
+
+"RXN-10814": # OK, EC-2.6.1.1; gene: SERP2159
+    "PHE" + "2-KETOGLUTARATE" <> "PHENYL-PYRUVATE" + "GLT"
+    ~
+    #REVERSIBLE
+
+"RXN0-6554": # OK, Meta L-R, EC-1.3.5.2; gene: SERP2144, substitutes menaquinones
+    "DI-H-OROTATE" + "MENAQUINONE" -> "OROTATE" + "REDUCED-MENAQUINONE"
+    ~
+    #LEFT-TO-RIGHT
+
+"R621-RXN": # OK, EC-1.14.12.17; gene: SERP0325, BRENDA Bsub cofactor NADH
+    2 "NITRIC-OXIDE" + 2 "OXYGEN-MOLECULE" + "NADH" -> 2 "NITRATE" + "NAD" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN0-7230": # OK, changed ETR-Quinones, EC-1.1.99.1; gene: SERP2176
+    "MENAQUINONE" + "CHOLINE" -> "REDUCED-MENAQUINONE" + "BETAINE_ALDEHYDE"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-5822": # OK, Meta L-R, EC-3.1.3.1/2; gene: SERP2075/2208
+    # NAD phosphorylation and dephosphorylation
+    "NADP" + "WATER" -> "NAD" + "Pi"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-14100": # OK, EC-2.7.1.74; gene: SERP0202
+    "DEOXYCYTIDINE" + "UTP" <> "DCMP" + "UDP" + "PROTON"
+    ~
+
+"RXN-13697": # OK, EC-2.6.1.1; gene: SERP2159
+    "L-ASPARTATE" + "2-KETOGLUTARATE" <> "GLT" + "OXALACETIC_ACID"
+    ~
+    
+#### ALIVE IF INCLUDED BUT CAUTION (db 24.0)
+
+"RXN-14098": # NO (humans?) EC-2.7.1.74; gene: SERP0202
+    "DEOXYGUANOSINE" + "UTP" <> "PROTON" + "DGMP" + "UDP"
+    ~
+
+"RXN-14099": # NO (humans?) EC-2.7.1.74; gene: SERP0202
+    "DEOXYADENOSINE" + "UTP" <> "PROTON" + "DAMP" + "UDP"
+    ~
+
+"NITRIC-OXIDE-SYNTHASE-RXN": # EC-1.14.13.39; gene: SERP1451
+    2 "ARG" + 3 "NADPH" + "PROTON" + 4 "OXYGEN-MOLECULE"
+    -> 2 "L-CITRULLINE" + 2 "NITRIC-OXIDE" + 3 "NADP" + 4 "WATER"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+###################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

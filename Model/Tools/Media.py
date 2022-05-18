@@ -1,0 +1,23 @@
+#Modified HHW media composition
+media = {'ARG':0.57, 
+	'NIACINE':0.16,
+	 'GLC':11.1,
+	 'L-ALPHA-ALANINE':1.12,
+	 'GLT':1.02,
+	 'HIS':0.64,
+	 'LYS':0.68,
+	 'ILE':1.14,
+	 'CYS':0.41,
+	 'VAL':1.28,
+	 'TYR':0.55,
+	 'MET':0.67,
+	 'ASN':1.13,
+	 'THR':1.26,
+	 'PRO':1.30,
+	 'PHE':0.60,
+	 'GLY':1.33,
+	 'SER':0.95,
+	 'L-ASPARTATE':1.13,
+	 'LEU':1.14,
+	 'AMMONIUM':0.03, #0.21 mmol((NH4)2SO4FeSO46H2O), 0.03 mmol of NH4
+	 'TRP':0.49}

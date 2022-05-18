@@ -1,0 +1,182 @@
+Structural()
+
+#Unbalanced reactions, which are now corrected (atomic imbalance):
+
+"RXN-12730": 
+    1 "SELENOHOMOCYSTEINE" + 1 "CPD-1302" -> 1 "CPD-1301" + 1 "SELENOMETHIONINE"
+    ~
+
+"RXN-12726": 
+    1 "ACETYLSERINE" + 1 "CPD-678" -> 1 "L-SELENOCYSTEINE" + 1 "PROTON" + 1 "ACET"
+    ~
+
+"RXN-12751": 
+    1 "WATER" + 1 "CPD-13758" -> 1 "CPD-13759" + 1 "ACETYL-COA" + 1 "PROTON" 
+    ~
+
+"RXN-12867": 
+    1 "NADPH" + 1 "CPD-13909" + 1 "PROTON" <> 1 "CPD-678" + 1 "GLUTATHIONE" + 1 "NADP"
+    ~
+
+"RXN-12865":
+    1 "CPD-13908" + 1 "NADPH" + 1 "PROTON" <> 1 "NADP" + 1 "CPD-13909" + 1 "GLUTATHIONE"
+    ~
+
+"RXN-12000": 
+    1 "WATER" + 1 "CPD-12936" + 1 "NADP" -> 1 "NADPH" + 1 "CPD-12937" + 2 "PROTON" 
+    ~
+
+"NITRATE-REDUCTASE-CYTOCHROME-RXN": # EC 1.9.6.1 , as per MetaCyc 22.6(unbalanced BioCyc)
+    "NITRATE" + 2 "Cytochromes-C-Reduced" + 2 "PROTON" ->
+    "NITRITE" + 2 "Cytochromes-C-Oxidized" + "WATER"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+##"1.7.2.2-RXN": # BioCyc 20.1
+##    "AMMONIA" + 2 "WATER" + 6 "Cytochromes-C-Oxidized" <- "NITRITE" + 6 "Cytochromes-C-Reduced" + 7 "PROTON"
+##    ~
+##    #RIGHT-TO-LEFT
+
+"1.7.2.2-RXN": # MetaCyc 22.6;  # High St Gibbs Free E.
+                    #Irrev LR makes PO ratio much closer to literature.
+    "NITRITE" + 8 "PROTON" + 6 "Cytochromes-C-Reduced"->
+    "AMMONIUM" + 2 "WATER" + 6 "Cytochromes-C-Oxidized"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN-8635": # Fixing Uncons stoich; "CPD-8890" to unwanted?
+    1 "CPD-8653" + 1 "HYDROGEN-PEROXIDE" -> 2 "WATER" + 1 "CPD-8890" 
+    ~
+
+"RXN-8674": # Fixing Uncons stoich ; "CPD-10490" to Unwanted?
+    "CPD-10490" + "WATER" + "OXYGEN-MOLECULE" + "PROTON" -> "GLYOX" + "ETHANAMINE" + "HYDROGEN-PEROXIDE"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"RXN-15139": # Fixing stoi inconsistencies involving H and O comps
+    "ADENINE" + 2 "CPD-12377" <> "CPD0-2461" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+"RXN0-7080": # Fixing stoi inconsistencies involving H and O comps
+    "CTP" + 2 "CPD-12377" -> "5-HYDROXY-CTP" + "WATER"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+
+"RXN-11409": # Fixing stoi inconsistencies involving H and O comps
+    "GTP" + 2 "CPD-12377" <> "CPD-12366" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-11410": # Fixing stoi inconsistencies involving H and O comps
+    "DGTP" + 2 "CPD-12377" <> "CPD0-1905" + "WATER"
+    ~
+    #LEFT-TO-RIGHT
+
+
+"RXN-14290": # Fixing stoi inconsistencies involving H and O comps
+    "DATP" + 2 "CPD-12377" -> "CPD-13851" + "WATER"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+
+"1.5.1.15-RXN": # 2 H added for atomic balance (contradictory set of reacs in MetaCyc)
+    "METHYLENE-THF-GLU-N" + "NAD" + 2 "PROTON" <> "5-10-METHENYL-THF-GLU-N" + "NADH"
+    ~
+    #LEFT-TO-RIGHT
+
+
+##"MALTODEXGLUCOSID-RXN": ## Now in Unwanted
+##    1 "glycogen" -> 1 "GLC"
+##    ~
+
+"MEPROPCOA-FAD-RXN": # FAD substituted by menaquinone
+    "ISOBUTYRYL-COA" + "MENAQUINONE" <> "METHACRYLYL-COA" + "REDUCED-MENAQUINONE"
+    ~
+    #LEFT-TO-RIGHT
+
+"BUTYRYL-COA-DEHYDROGENASE-RXN":
+	"BUTYRYL-COA" + "MENAQUINONE" <- "REDUCED-MENAQUINONE" + "CROTONYL-COA"
+	~
+
+"R282-RXN":
+	"CPD-577" + "MENAQUINONE" <> "CPD-533" + "REDUCED-MENAQUINONE"
+	~
+
+"GLUTARYL-COA-DEHYDROG-RXN":
+	"GLUTARYL-COA" + "MENAQUINONE" <> "GLUTACONYL-COA" + "REDUCED-MENAQUINONE"
+	~
+
+"R265-RXN":
+	"CPD-533" + "MENAQUINONE" <> "REDUCED-MENAQUINONE" + "CYCLOHEXA-15-DIENE-1-CARBONYL-COA"
+	~
+
+"PROPCOASYN-RXN": # Atomic balance
+    "PROPIONYL-COA" + "MENAQUINONE" <> "ACRYLYL-COA" + "REDUCED-MENAQUINONE"
+    ~
+    #LEFT-TO-RIGHT
+
+"2-METHYLACYL-COA-DEHYDROGENASE-RXN": # Atomic balance
+    "2-METHYL-BUTYRYL-COA" + "MENAQUINONE" <> "CPD-1083" + "REDUCED-MENAQUINONE"
+    ~
+    #REVERSIBLE
+
+########## NOTES =
+
+##    "ETF-Reduced"              : "REDUCED-MENAQUINONE",
+##    "ETF-Oxidized"             : "MENAQUINONE", 
+
+##  Not in Substitutes, but in Corr_stoich becasue also needed to adjust protons =
+##  "ETF-Reduced"  = "ETF-Oxidized" + 3H
+##  while "REDUCED-MENAQUINONE" = "MENAQUINONE" + 2H
+
+##Either all "ETF-Oxidized" to FAD for continuity of the network, or for MENAQUINONES.
+##
+##Example of problem:
+##
+##    MEPROPCOA-FAD-RXN: # EC-1.3.8- ; valine degradation
+##            1 ISOBUTYRYL-COA + 1 MENAQUINONE <> 1 REDUCED-MENAQUINONE + 1 METHACRYLYL-COA
+##            ~
+##            
+##MetaCyc 22.6 = FAD had to be susbtituted by MENAQUINONE etc. Since not any other reactions
+##in model were involved with FAD and so, it could not be regenerated. In Corr_stoich, cause
+## also needed to adjust protons. (FADH2 = FAD + 2H)
+##
+##The electron transferring-flavoproteins (ETF) serve as specific electron carriers for
+##other dehydrogenases. They transfer the electrons to the main respiratory chain via
+##ETF-ubiquinone oxidoreductase (ETF dehydrogenase).
+##
+##Most of the characterized electron-transferring flavoproteins belong to a single group.
+##These proteins, including those from mammals [Roberts96], plants [Ishizaki06], and some
+##bacteria, such as the methylotrophic bacterium Methylophilus methylotrophus W3A1 [Chen94]
+##and the soil bacterium Paracoccus denitrificans [Roberts99], are heterodimeric, contain
+##one non-covalently bound FAD and one AMP per molecule, and function as electron carriers
+##between other flavoproteins (such as acyl-CoA dehydrogenases, sarcosine dehydrogenase,
+##and trimethylamine dehydrogenase) and a quinone, depending on the source species.
+
+##UNIQUE-ID - ETF-Oxidized
+##CHEMICAL-FORMULA - (ETF 1)
+##//
+##UNIQUE-ID - ETF-Reduced
+##CHEMICAL-FORMULA - (ETF 1)
+##CHEMICAL-FORMULA - (H 3)
+##//
+##UNIQUE-ID - ETR-Quinols
+##CHEMICAL-FORMULA - (ETR-Q )
+##CHEMICAL-FORMULA - (H 2)
+##//
+##UNIQUE-ID - ETR-Quinones
+##CHEMICAL-FORMULA - (ETR-Q)
+
+
+
+
+
+
+
+
+
+
+
+

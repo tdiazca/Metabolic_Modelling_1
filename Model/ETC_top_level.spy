@@ -1,0 +1,228 @@
+#
+##
+### Top level module to analyse the ETC in isolation
+##
+#
+
+Structural()
+
+Include(ETC.spy)
+
+##External("WATER")
+
+"NITRATE-REDUCTASE-CYTOCHROME-RXN": # SERP1985 (narJ)
+	1 "NITRATE" + 2 "Cytochromes-C-Reduced" + 2 "PROTON" ->
+	2 "Cytochromes-C-Oxidized" + 1 "WATER" + 1 "NITRITE"
+	~
+	
+        #PHYSIOL-LEFT-TO-RIGHT
+    # EC-1.9.6.1 ; IRREV MetaCyc 22.6
+
+"1.7.2.2-RXN": 
+	1 "NITRITE" + 6 "Cytochromes-C-Reduced" + 8 "PROTON"
+	-> 6 "Cytochromes-C-Oxidized" + 2 "WATER" + 1 "AMMONIUM"
+	~
+    # EC-1.7.2.2, High Gibbs Free E. Irrev LR makes PO ratio much closer to literature data.
+
+##"RXN-11811": # Spontaneous
+##    "AMMONIA" + "PROTON" <> "AMMONIUM"
+##    ~
+
+ATPase:
+    "ATP" + "WATER" -> "ADP" + "Pi" + "PROTON" + x_AWork
+    ~
+
+NADH_tx:
+    x_NADH -> "NADH"
+    ~ 
+
+NAD_tx:
+    x_NAD <- "NAD"
+    ~
+
+
+WATER_tx:
+    x_WATER <- "WATER"
+    ~
+    
+O2_tx:
+    x_O2 <> "OXYGEN-MOLECULE"
+    ~
+    
+NO2_tx:
+    x_NITRITE <- "NITRITE"
+    ~
+
+NO3_tx:
+    x_NITRATE -> "NITRATE"
+    ~
+
+NH4_tx: 
+    x_NH4 <> "AMMONIUM"
+    ~
+
+# Note, tx for some byproducts excrete PROTON
+
+##"NH3_H+_exp_tx": # TRANS-RXN1G46-4 ammonia permease (import), SERP1498
+##    x_AMMONIA + x_PROTON -> "AMMONIA" + "PROTON"
+##    ~
+##    #LEFT-TO-RIGHT
+##    # Not in MetaCyc, could it be rev?
+##    # MetaCyc simple diffusion of NH3
+
+##>>> etc=ModelGeneralProperties.ElementaryModesETC(m)
+##ui <module 'IdleGUI' from '/usr/lib/python2.7/dist-packages/ScrumPy/IdleGUI/IdleGUI.pyc'>
+## These are the net stoichiometries of the elementary modes of the ETC stand-alone module: 
+##
+##ElMo_0:
+##	2 x_O2 + 4 x_NADH + 4 x_PROTON -> 4 x_NAD + 9 x_AWork + 4 x_WATER
+##	~
+##ElMo_1:
+##	8 x_NADH + 2 x_NITRATE + 12 x_PROTON -> 8 x_NAD + 2 x_NH4 + 15 x_AWork + 6 x_WATER
+##	~
+##ElMo_2:
+##	4 x_NADH + 4 x_NITRATE + 4 x_PROTON -> 4 x_NAD + 4 x_NITRITE + 7 x_AWork + 4 x_WATER
+##	~
+##ElMo_3: # same as 1
+##	8 x_NADH + 2 x_NITRATE + 12 x_PROTON -> 8 x_NAD + 2 x_NH4 + 15 x_AWork + 6 x_WATER
+##	~
+##ElMo_4: # same as 2
+##	4 x_NADH + 4 x_NITRATE + 4 x_PROTON -> 4 x_NAD + 4 x_NITRITE + 7 x_AWork + 4 x_WATER
+##	~
+##ElMo_5:
+##	12 x_NADH + 4 x_NITRITE + 20 x_PROTON -> 12 x_NAD + 4 x_NH4 + 23 x_AWork + 8 x_WATER
+##	~
+
+## Note of Elmo obatined if tx for NO2 and NO3 not present
+##>>> print elmo.ReacsOf('ElMo_1')
+##{'Nitrate_red_mena': -1, 'Mena_oxid': 1, 'NITRATE-REDUCTASE-CYTOCHROME-RXN': 1}
+##
+## This is an internal cycle. This cycle should not carry flux as such
+## because in the steady state these components would be in an equilibrium
+## between them.
+##
+## G between 2 compounds is the same regardless of the routes taken to get there
+
+
+########        IF INCLUDING ALL REACS INVOLVED WITH NO2 (no H pumped though)
+########
+##"RXN0-6377-(NAD)": # only other reacs in model involved with NO2
+##	2 "WATER" + 3 "NAD" + 1 "AMMONIUM" <-
+##	1 "NITRITE" + 3 "NADH" + 5 "PROTON"
+##	~
+##    # EC-1.7.1.4 this enz also reduces nitrite using NADPH ; SERP_RS09920
+##
+##"RXN0-6377-(NADP)": # only other reacs in model involved with NO2
+##	2 "WATER" + 3 "NADP" + 1 "AMMONIUM" <-
+##	1 "NITRITE" + 3 "NADPH" + 5 "PROTON"
+##	~
+##    # EC-1.7.1.4 this enz also reduces nitrite using NADH ; SERP_RS09920
+##
+##NADPH_tx:
+##    x_NADPH -> "NADPH"
+##    ~ 
+##
+##NADP_tx:
+##    x_NADP <- "NADP"
+##    ~
+
+##>>> m1=ScrumPy.Model('ETC_TopLevel.spy')
+##>>> m1.ElModes()
+##
+##<ScrumPy.Structural.ElModes.ModesDB instance at 0x7f726dd3e368>
+##>>> elmo=m1.ElModes()
+##>>> k=m1.sm.NullSpace()
+##>>> k
+##>>> print elmo.Stos()
+##
+##    >>> etc=ModelGeneralProperties.ElementaryModesETC(m)
+##    ui <module 'IdleGUI' from '/usr/lib/python2.7/dist-packages/ScrumPy/IdleGUI/IdleGUI.pyc'>
+##     These are the net stoichiometries of the elementary modes of the ETC stand-alone module:
+##
+##    ElMo_0:
+##            1 x_NADH + 3 x_NADPH + 1 x_NITRATE + 6 x_PROTON -> 1 x_NAD + 1 x_NH4 + 3 x_AWork + 3 x_NADP + 3 x_WATER
+##            ~
+##    ElMo_1:
+##            12 x_NADH + 4 x_NITRITE + 20 x_PROTON -> 12 x_NAD + 4 x_NH4 + 5 x_AWork + 8 x_WATER
+##            ~  ## NO2
+##    ElMo_2:
+##            12 x_NADH + 4 x_NITRITE + 20 x_PROTON -> 12 x_NAD + 4 x_NH4 + 23 x_AWork + 8 x_WATER
+##            ~  ## NO2
+##    ElMo_3:
+##            4 x_NADH + 4 x_NITRATE + 4 x_PROTON -> 4 x_NAD + 4 x_NITRITE + 7 x_AWork + 4 x_WATER
+##            ~
+##    ElMo_4:
+##            4 x_NADH + 1 x_NITRATE + 6 x_PROTON -> 4 x_NAD + 1 x_NH4 + 3 x_AWork + 3 x_WATER
+##            ~
+##    ElMo_5:
+##            8 x_NADH + 2 x_NITRATE + 12 x_PROTON -> 8 x_NAD + 2 x_NH4 + 15 x_AWork + 6 x_WATER
+##            ~
+##    ElMo_6:
+##            2 x_O2 + 4 x_NADH + 4 x_PROTON -> 4 x_NAD + 9 x_AWork + 4 x_WATER
+##            ~
+##    ElMo_7:
+##            4 x_NITRITE + 12 x_NADPH + 20 x_PROTON -> 4 x_NH4 + 5 x_AWork + 12 x_NADP + 8 x_WATER
+##            ~  ## NO2 ; and
+##            NADPH
+##    ElMo_8:
+##            1 x_NADH + 3 x_NADPH + 1 x_NITRATE + 6 x_PROTON -> 1 x_NAD + 1 x_NH4 + 3 x_AWork + 3 x_NADP + 3 x_WATER
+##            ~ # same as 1
+##    ElMo_9:
+##            4 x_NADH + 4 x_NITRATE + 4 x_PROTON -> 4 x_NAD + 4 x_NITRITE + 7 x_AWork + 4 x_WATER
+##            ~  # same as 3
+##    ElMo_10:
+##            4 x_NADH + 1 x_NITRATE + 6 x_PROTON -> 4 x_NAD + 1 x_NH4 + 3 x_AWork + 3 x_WATER
+##            ~ # same as 4
+##    ElMo_11:
+##            8 x_NADH + 2 x_NITRATE + 12 x_PROTON -> 8 x_NAD + 2 x_NH4 + 15 x_AWork + 6 x_WATER
+##            ~ # same as 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

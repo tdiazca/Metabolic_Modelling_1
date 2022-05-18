@@ -1,0 +1,722 @@
+Structural()
+
+## Modified HHW media
+
+
+################## Amino acids
+
+"L-ALPHA-ALANINE_NA_AA_mm_tx": # "TRANS-RXN-125"; SERP0927
+    "x_NA+" + "x_ALA" -> "NA+" + "L-ALPHA-ALANINE"
+    ~
+    #REVERSIBLE
+    # Na ALA symporter
+    
+"L-ALPHA-ALANINE_AA_mm_tx": # TRANS-RXN1G46-5; SERP1260, SERP1902, SERP2017 import
+    "x_ALA" -> "L-ALPHA-ALANINE" 
+    ~
+    # ala / gly permease
+
+"ARG_AA_mm_tx": # RXN1G46-11 ; SERP2003
+    "x_ARG" + "ATP" + "WATER" -> "ARG" + "ADP" + "Pi" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # arginine ABC transporter ATP-binding protein SERP2003
+    # amino acid ABC transporter permease SERP2028
+    # amino acid ABC transporter permease SERP2355
+    # predicted ABC transporter of an amino acid SERP2004, SERP2005
+
+
+"ARG_ORN_antip_AA_mm_tx": # TRANS-RXN1G46-20; SERP2247
+    "x_ARG" + "L-ORNITHINE" <> "ARG" + "x_ORNIT"
+    ~
+    #LEFT-TO-RIGHT
+    # arginine-ornithine antiporter 
+    # "25-DIAMINOPENTANOATE" = L-ORNITHINE
+
+"ASN_AA_mm_tx":
+    "x_ASN" -> "ASN"
+    ~
+
+"L-ASPARTATE_AA_mm_tx":
+    "x_L-ASPARTATE" -> "L-ASPARTATE"
+    ~
+
+"CYS_AA_mm_tx": # RXN1G46-17 ; SERP0340
+    "x_CYS" + "ATP" + "WATER" -> "CYS" + "ADP" + "Pi" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # cysteine ABC transporter ATP-binding protein SERP0340
+    # amino acid ABC transporter permease SERP2028
+    # amino acid ABC transporter permease SERP2355
+    # predicted ABC transporter of an amino acid SERP2004, SERP2005
+
+
+"GLT_AA_mm_tx": #  RXN1G46-23; SERP1395, SERP1394
+    "x_GLT" + "ATP" + "WATER" -> "GLT" + "ADP" + "Pi" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # predicted ABC transporter of a glutamate (SERP1395)
+    # amino acid ABC transporter permease (SERP2028,SERP2355,SERP2005)
+
+"GLT_NA_AA_mm_tx": # TRANS-RXN1G46-11;  SERP1935
+    "x_GLT" + "x_NA+" -> "GLT" + "NA+"
+    ~
+    #LEFT-TO-RIGHT
+    # Sodium / glutamate symporter
+    
+
+"GLY_AA_mm_tx": # TRANS-RXN0-537; SERP2142
+    "x_GLY" -> "GLY"
+    ~
+    # REVERSIBLE ECOCYC
+    # D-serine/D-alanine/glycine transporter (SERP2142)
+    # Amino acid transporter LysE SERP0051
+    # Amino acid transporter SERP2034
+    # TRANS-RXN1G46-5; SERP1260, SERP1902, SERP2017 import
+    # ala / gly permease
+
+"HIS_AA_mm_tx":
+    "x_HIS" -> "HIS"
+    ~
+    # No specific info for ref genome Sau 8325 Bsub 168 vs 24.0
+
+"ILE_AA_mm_tx":
+    "x_ILE" -> "ILE"
+    ~
+
+"LEU_AA_mm_tx":
+    "x_LEU" -> "LEU"
+    ~
+
+"LYS_AA_mm_tx": # TRANS-RXN-58; SERP1245  
+    "x_PROTON" + "x_LYS" -> "PROTON" + "LYS"
+    ~
+    #REVERSIBLE
+    # Lys proton symporter ECOCYC
+    # lysine-specific permease SERP1245 
+    # amino acid permease 2158, 2018, 0232
+
+
+"MET_AA_mm_tx": # RXN1G46-22; SERP0098/9, SERP0489, SERP0491
+    "x_MET" + "ATP" + "WATER" -> "MET" + "ADP" + "Pi" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # predicted ATP-driven transporter of L-methionine SERP0489, SERP0491
+    # predicted ABC transporter of L-methionine SERP0098, 0099
+    # amino acid ABC tx 2028, 2004, 2005, 2355
+    
+
+"PHE_AA_mm_tx":
+    "x_PHE" -> "PHE"
+    ~
+
+"PRO_AA_mm_tx": # TRANS-RXN-118; SERP1440
+    "x_NA+" + "x_PRO" -> "NA+" + "PRO"
+    ~
+    #REVERSIBLE
+    # Sodium proline symporter
+
+
+"SER_AA_mm_tx":
+    "x_SER" -> "SER"
+    ~
+
+"TRP_AA_mm_tx":
+    "x_TRP" -> "TRP"
+    ~
+
+"TYR_AA_mm_tx":
+    "x_TYR" -> "TYR"
+    ~
+
+"THR_AA_mm_tx":
+    "x_THR" -> "THR"
+    ~
+
+"VAL_AA_mm_tx":
+    "x_VAL" -> "VAL"
+    ~
+
+#############    GLUCOSE
+
+"GLC_mm_tx": # TRANS-RXN1G46-6; SERP1838
+    "x_GLC" -> "GLC"
+    ~
+    #LEFT-TO-RIGHT
+    # Glucose uptake protein GlcU
+
+"GLC_PTS_mm_tx": # RXN-15083; EC-2.7.1.199; SERP2114, SERP1290 PTS glc import system
+    "Hpr-pi-phospho-L-histidines" + "x_GLC" -> "GLC-6-P" + "Hpr-Histidine"
+    ~
+    #LEFT-TO-RIGHT
+    # PTS glucose transporter
+
+#######         ALTERNATIVE ELECTRON ACCEPTORS (NOT IN MHHW MEDIA)
+
+##NO3_mm_tx: # TRANS-RXN1G46-13; SERP2357, SERP2030, SERP1980 (NarT)
+##    x_NITRATE <> "NITRATE"
+##    ~
+##    #LEFT-TO-RIGHT
+##    # Nitrate tx NarT
+##    # # 4 to 6 microgram/ml in blood:
+##        #REF an evaluation of blood nitrate levels 1958 
+
+##"NO2_mm_tx": # ETC # Can be imported, but stronger pref of EC for NO3 in ETC (REF)
+##    x_NITRITE <- "NITRITE"
+##    ~
+##    # short half life in plasma; gets oxidized to NO3
+
+#############      CORE SUBSTRATES, GAS, METALS    
+
+"WATER_tx":
+    "x_WATER" <> "WATER"
+    ~
+
+"AMMONIUM_mm_tx":  
+    "x_NH4" -> "AMMONIUM"
+    ~
+
+"OXYGEN-MOLECULE_tx":
+    "x_O2" <> "OXYGEN-MOLECULE"
+    ~
+
+"Pi_tx": #"ABC-27-RXN"; SERP0957, SERP0958, SERP0959 
+    "ATP" +  "x_Pi" + "WATER" -> "ADP" + 2  "Pi" + "PROTON"
+    ~
+    #PHYSIOL-LEFT-TO-RIGHT
+    # ABC transporter of phosphate
+
+
+"SULFATE_tx": # TRANS-RXN1G46-10; SEA0024 (SERP_RS00130) pSERP plasmid
+    "x_SULFATE" + "x_PROTON" -> "SULFATE" + "PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # sulphate permease SEA0024
+    # anion permease SERP0317, 2187, 2432, 0509, 2513
+
+"NA+_H+_tx": # TRANS-RXN1G46-12; SERP0092, SERP1976, 
+    "x_NA+" + "PROTON" <> "NA+" + "x_PROTON"
+    ~
+    #LEFT-TO-RIGHT
+    # sodium-dependent transporter
+    # proton/sodium antiporter chaA in Ecoli
+
+##"NA+_H+_tx": # TRANS-RXN1G46-12; SERP0092, SERP1976, 
+##    "x_NA+" + "x_PROTON" <> "NA+" + "PROTON"
+##    ~
+##    #LEFT-TO-RIGHT
+##    # sodium-dependent transporter
+##    # proton/sodium-glutamate symport protein GltT
+    
+##"FE+2_mm_tx": 
+##    "x_FE+2" -> "FE+2"
+##    ~
+## Needed for protoheme/siroheme synthesis.
+## But these are not in BM description file.
+
+########        VITAMINS
+
+"NIACINE_mm_tx": # needed to produce NAD,NADH,NADP,NADPH without O2 and NO3!!!
+    "x_NIACINE" -> "NIACINE" 
+    ~
+
+#######      METABOLIC BY-PRODUCTS; EXCRETED TO THE ENVIRONMENT
+
+"ACET_bp_tx": # fermentation: pyruvate to acetate
+    "x_ACET" + "x_PROTON" <- "ACET" + "PROTON"
+    ~
+    # CH3COOH vs CH3COO- (acetic acid is protonated form of acetate)
+    # In MetaCyc CH3COO- formula (acetate)
+    # we assume when its exported it is exported as the acid
+    # part of the acid will be present as conjugated base (acetate)
+    # ratio depends on dissociation constant under physiological conditions
+
+"ACETOIN_bp_tx": # fermentation: pyruvate to acetoin
+    "x_ACETOIN" <- "ACETOIN"
+    ~
+    
+"BUTYRIC_ACID_bp_tx": # fermentation: pyruvate to butanoate
+    "x_BUTYRIC_ACID" + 1 "x_PROTON" <- "BUTYRIC_ACID" + "PROTON"
+    ~
+
+"BUTANOL_bp_tx": # fermentation: glycerol to butanol (PWY-7003)
+    x_BUTANOL  <- "BUTANOL"
+    ~
+
+"BUTANEDIOL_bp_tx": # fermentation: glycerol to butanediol
+    "x_BUTANEDIOL"  <- "BUTANEDIOL"
+    ~
+
+"CARBON-DIOXIDE_bp_tx": # Not IRREV, bact can not fix it
+    "x_CO2" <- "CARBON-DIOXIDE"
+    ~
+
+"ETOH_bp_tx": # mixed acid fermentation and pyruvate to ethanol
+    "x_ETOH" <- "ETOH"
+    ~
+
+"FORMATE_bp_tx": # mixed acid fermentation = CO2 + H2 * Check!!
+    "x_FORMATE" + "x_PROTON" <- "FORMATE" + "PROTON"
+    ~
+
+"D-LACTATE_bp_tx":
+    "x_D-LACTATE" + "x_PROTON" <- "D-LACTATE" + "PROTON"
+    ~
+
+"L-LACTATE_bp_tx":
+    "x_L-LACTATE" + "x_PROTON" <- "L-LACTATE" + "PROTON"
+    ~
+
+"SUC_bp_tx": # mixed acid fermentation
+    "x_SUC" + 2 "x_PROTON" <- "SUC" + 2 "PROTON"
+    ~
+
+"2-KETOGLUTARATE_bp_tx": # mixed acid fermentation
+    "x_2-KETOGLUTARATE" + 2 "x_PROTON" <- "2-KETOGLUTARATE" + 2 "PROTON"
+    ~
+"AMMONIUM_tx":  
+    "x_NH4" <- "AMMONIUM"
+    ~
+
+"Autoinducer_2_sink_tx": # Produced during CYS and MENAQUINONE biosynthesis and not consumed
+    "x_Autoinducer_2A" <- "CPD-10774"
+    ~
+"HS_tx":
+    x_HS <- "HS"
+    ~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
